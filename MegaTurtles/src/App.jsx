@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import ContentMain from './Components.context.jsx'
+import ContentMain from './Components/content'
 
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="App">
       <ContentMain />
+
     </div>
   )
 }
