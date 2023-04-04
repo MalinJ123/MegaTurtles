@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import ContentMain from './Components/content'
+import './ContentMain.css'
 
 
 function App() {
