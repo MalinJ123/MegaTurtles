@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import './App.css'
-import MenuPage from './Components/MenuPage'
+import MenyPage from './Components/MenyPage'
+import './Stylesheet/menyPage.css';
+
+
 
 function App() {
  
   return (
     <div className="App">
     
-    <MenuPage/>
+    <MenyPage/>
     </div>
   )
 }

@@ -1,0 +1,22 @@
+.menySection{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.meny-h3{
+	font-family: 'Parisienne', cursive;
+	font-size: 2em;
+}
+
+.meny-pic {
+	width: 50%;
+	max-width: 50%;
+	height: auto;
+	border-radius: px;
+  }
+
+  .tabort-Btn,
+  .läggtill-Btn{
+	width: 2em;
+	height: 1.5em;
+  }
