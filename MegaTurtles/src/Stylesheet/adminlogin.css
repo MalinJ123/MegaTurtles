@@ -1,0 +1,28 @@
+.overlay {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	height: 100%;
+	background-color: black;
+
+}
+
+.form-container {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	background-color: darkgray;
+	padding: 4em;
+	width: 30%;
+	text-align: center;
+	margin: 0;
+}
+
+.form-container * {
+	border-radius: 0.5em;
+	padding: 0.5em;
+	margin: 0.5em;
+}
+

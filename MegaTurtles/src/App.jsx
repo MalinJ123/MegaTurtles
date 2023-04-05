@@ -6,6 +6,8 @@ import Footer from './Components/footer.jsx/'
 import './footer.css'
 import Header from './Components/header.jsx'
 import './header.css';
+import AdminLogin from './Components/adminlogin';
+import '../src/Stylesheet/adminlogin.css'
 
 
 function App() {
@@ -13,9 +15,9 @@ function App() {
   return (
     <div className="App">
      
-    <Header/>
-    
-    <MenyPage/> 
+    <Header />
+    <AdminLogin />
+    <MenyPage /> 
     <Footer />
     </div>
   )

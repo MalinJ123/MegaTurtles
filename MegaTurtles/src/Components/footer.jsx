@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import AdminLogin from './adminlogin';
 
 const Footer = () => {
 	return (
@@ -13,6 +14,7 @@ const Footer = () => {
             <FontAwesomeIcon className="social-icon" icon={faTwitter} />
            </div>
            <p className="right-side-text">Drottninggatan 3<br />Karlstad, Sverige<br />012-3456789</p>
+		   <p onClick={AdminLogin}>Personalsida</p>
 		</footer>
        
 	)
