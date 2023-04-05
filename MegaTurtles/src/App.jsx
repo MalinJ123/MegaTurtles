@@ -18,7 +18,7 @@ function App() {
     <Header/>
     <ContentMain />
 
-    {/* <MenyPage/>  */}
+     {/* <MenyPage/>  */}
     <Footer />
     </div>
   )
