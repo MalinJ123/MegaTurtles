@@ -11,7 +11,7 @@ function MenyPage() {
 	  {
 		namn: "Rödspätta",
 		bild: Fish,
-		beskrivning: "Rödspätta, potatis, ärtor, remouladsås, citronskiva"
+		beskrivning: "En härligt rödspätta som serveras med potatis, citronsås och ärtor"
 	  },
 	  {
 		namn: "Lammstek",
