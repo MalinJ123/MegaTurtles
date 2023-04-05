@@ -35,11 +35,18 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center; 
+		width: 30%;
+		flex-direction: column;
 	  }
-	 
 	
 	  .läggtill-Btn {
 		align-self: center; 
+	  }
+	  .price{
+		border: 2px solid black; 
+		width: 12em;
+		align-items: end;
+		justify-content: end;
 	  }
   }
   
