@@ -7,16 +7,39 @@
 	font-family: 'Parisienne', cursive;
 	font-size: 2em;
 }
-
 .meny-pic {
 	width: 50%;
 	max-width: 50%;
 	height: auto;
-	border-radius: px;
+	/* border-radius: 100px; */
+	box-shadow: 2px 5px 5px 1px rgba(7, 7, 9, 0.41);
+  }
+  .beskrivningP{
+	width: 50%;
+	max-width: 50%;
+	height: auto;
   }
 
-  .tabort-Btn,
   .läggtill-Btn{
 	width: 2em;
 	height: 1.5em;
   }
+
+  @media screen and (min-width: 768px ) {
+	.meny-pic{
+		width: 30%;
+ 		height: 200px;
+  		object-fit: cover; 
+	}
+	.beskrivningP{
+		display: flex;
+		justify-content: space-between;
+		align-items: center; 
+	  }
+	 
+	
+	  .läggtill-Btn {
+		align-self: center; 
+	  }
+  }
+  
