@@ -50,14 +50,15 @@ function MenyPage() {
 		{matratter.map((matratt, index) => (
 		  <section className="menySection" key={index}>
 			<p>______________________________</p>
-			<h3>{matratt.namn}</h3>
+			<h3 className="h3matratter">{matratt.namn}</h3>
 			<img className="meny-pic" src={matratt.bild} alt="Beskrivning av din bild" />	
 			
-			<section className="beskrivningP">
-				<p>{matratt.beskrivning}</p>
-				<p className="price">{matratt.price}</p>
+			<section className="para-section">
+				<p className="para-meny-text">{matratt.beskrivning}</p>
 			</section>
-			<button className="läggtill-Btn">+</button>
+				<p className="price">{matratt.price}</p>
+			<button className="plusbtn">+</button>
+			
 		  </section>
 			
 		))}
