@@ -28,10 +28,21 @@ main {
 	max-height: 300px; 
 	border-radius: 1.5em; 
 	box-shadow: 5px 5px 15px rgba(0,0,0, 0.5);
+	position: relative;
 }
 
 .main-text {
 	padding: 0.5em; 
+}
+
+h1 {
+	text-align: start;
+	position: absolute; 
+	bottom: 18.5em;
+	left: 1em; 
+	color: rgb(176, 239, 176); 
+	text-shadow: 4px 5px 3px rgba(0,0,0, 0.5);
+
 }
 
 h2 {
@@ -57,18 +68,11 @@ h2 {
 	padding: 0.5em; 
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 630px) {
 
 	.glasbord {
 		max-width: 600px;
 		max-height: 400px;
-	}
-
-	.main-para-container, .text-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-
 	}
 
 	.text-container {
@@ -76,8 +80,6 @@ h2 {
 		flex-direction: row;
 		justify-content: center;
 	}
-
-
 
 }
 
