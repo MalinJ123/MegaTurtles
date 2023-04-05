@@ -11,11 +11,11 @@ function App() {
  
   return (
     <div className="App">
-      <ContentMain />
-
     <Header/>
+    <ContentMain />
+
     
-    <MenuPage/>
+    {/* <MenuPage/> */}
     </div>
   )
 }

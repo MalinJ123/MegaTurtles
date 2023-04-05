@@ -9,7 +9,6 @@ const ContentMain = () => {
 			
 		<div className="main-container">
 			<img className="glasbord" src={bord} />
-			<h1>Middagshörnet</h1>
 				<div className="main-text">
 					<h2>Är du på jakt efter en riktig bra restaurang som erbjuder den bästa servicen och smakupplevelsen? <br/> Då har du kommit rätt! </h2>
 				</div>
