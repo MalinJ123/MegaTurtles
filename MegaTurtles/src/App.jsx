@@ -6,7 +6,7 @@ import './Stylesheet/menyPage.css';
 
 import Header from './Components/header.jsx'
 import './header.css';
-import MenuPage from './Components/MenuPage'
+
 
 function App() {
  
