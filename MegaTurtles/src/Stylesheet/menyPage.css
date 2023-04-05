@@ -21,7 +21,7 @@
 	font-size: 1.3em;
 	justify-content: flex-start;
   }
-  .para-section{
+  .paraSection{
 	width: 50%;
 	max-width: 50%;
 	height: auto;
@@ -44,6 +44,10 @@
 	cursor: pointer;
 	width:2em;
 	height:2em;
+	visibility: hidden;
+  }
+  .plusbtn-mobile{
+	width: 0px;
   }
 
   @media screen and (min-width: 740px) {
@@ -57,7 +61,7 @@
   		object-fit: cover; 
 	}
 	
-	.para-section{
+	.paraSection{
 		display: flex;
 		align-items: center; 
 		width: 30%;
@@ -76,15 +80,21 @@
 		justify-content: end;
 		font-size: 1.2em;
 	  }
-	  .plusbtn{
+	 
+	  .plusbtn-mobile{
 		cursor: pointer;
 		width:6em;
 		height:2em;
 	  }
+  }
+
+  @media screen and( max-width: 500px ) {
+	.plusbtn{
+		display: none;
+	  }
 	  .plusbtn:hover{
 		background-color: rgb(22, 147, 105);
 		color:rgb(255, 255, 255);
-	
 	  }
   }
- 
+ npm 

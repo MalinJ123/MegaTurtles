@@ -53,11 +53,13 @@ function MenyPage() {
 			<h3 className="h3matratter">{matratt.namn}</h3>
 			<img className="meny-pic" src={matratt.bild} alt="Beskrivning av din bild" />	
 			
-			<section className="para-section">
+			<section className="paraSection">
 				<p className="para-meny-text">{matratt.beskrivning}</p>
 			</section>
 				<p className="price">{matratt.price}</p>
-			<button className="plusbtn">+</button>
+			<button className="plusbtn">Lägg till </button>
+			<button className="plusbtn-mobile">+</button>
+
 			
 		  </section>
 			
