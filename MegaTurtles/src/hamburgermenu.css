@@ -1,0 +1,22 @@
+.hamburger-menu {
+	cursor: pointer;
+}
+
+.links-hamburger-menu li {
+	list-style: none;
+	padding-bottom: 2em;
+}
+
+.nav-hamburger-menu {
+	background-color: #6CA695;
+	color: white;
+	position: fixed;
+	top: 12.9em;
+	right: 0em;
+	/* height: 10em; */
+	padding: 0;
+}
+
+.nav-hamburger-menu * {
+	padding: 1em;
+}
