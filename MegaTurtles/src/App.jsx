@@ -3,6 +3,9 @@ import './App.css'
 import ContentMain from './Components/content'
 import './ContentMain.css'
 
+import Header from './Components/header.jsx'
+import './header.css';
+import MenuPage from './Components/MenuPage'
 
 function App() {
  
@@ -10,6 +13,9 @@ function App() {
     <div className="App">
       <ContentMain />
 
+    <Header/>
+    
+    <MenuPage/>
     </div>
   )
 }
