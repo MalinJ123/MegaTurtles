@@ -6,7 +6,6 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import React, { useRef, useState } from 'react';
 import HamburgerMenu from './hamburgermenu';
 import '../hamburgermenu.css';
-import '../Stylesheet/payment.css';
 
 const Header = () => {
 	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
