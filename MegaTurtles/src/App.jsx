@@ -8,6 +8,8 @@ import Footer from './Components/footer.jsx/'
 import './footer.css'
 import Header from './Components/header.jsx'
 import './header.css';
+import UserForm from './Components/Userform'
+import './Stylesheet/userForm.css'
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
      
     <Header/>
      <ContentMain />
+     <UserForm />
 
      {/* <MenyPage/>  */}
     <Footer />

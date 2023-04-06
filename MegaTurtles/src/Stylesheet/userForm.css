@@ -1,0 +1,90 @@
+.contact {
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items: center;
+}
+
+.user-form {
+	margin: 2em; 
+	padding: 2em 2em 2em 1em; 
+	background-color: rgb(208, 220, 214);
+	border-radius: 1em;
+	box-shadow: rgba(45, 48, 47, 0.35) 0px 10px 15px;
+	max-width: 350px;
+	width: 70%; 
+}
+
+.user-form-header {
+	padding: 0em 1em 1em 0.5em; 
+	font-weight: bold;
+}
+
+
+.name-input, .number-input,.message-container {
+	padding: 0.5em; 
+	font-weight: bold;
+}
+
+.form-input:focus, .message-box:focus {
+	outline: none;
+	border: 1px solid rgba(25, 163, 20, 0.516);
+}
+
+
+.form-input {
+	width: 100%; 
+	padding: 0.5em; 
+	border-radius: 0.5em;
+	border: 1px solid rgb(165, 181, 165); 
+}
+
+.message-box {
+	width: 100%; 
+	padding: 0.5em; 
+	border: 1px solid  rgb(165, 181, 165); 
+	resize: none;
+}
+
+/*Knappen i formuläret*/
+.form-button { 
+	padding: 0.8em; 
+	width: 100px; 
+	border: 1px solid rgb(165, 181, 165); 
+	border-radius: 1em; 
+	font-weight: bold;
+}
+
+.form-button:hover {
+	background-color: #6CA695;
+}
+
+/*foto på kontakta oss*/
+.contactUs {
+	margin: 1em;  
+	max-width: 300px;
+	height: 200px;
+	border-radius: 100px;
+	box-shadow: 5px 5px 15px rgba(0,0,0, 0.5);
+	display: none;
+}
+
+
+@media screen and (min-width: 600px) {
+
+	.contact {  
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.contactUs {
+		max-width: 150%;
+		margin-left: 2em; 
+		display: block;
+
+	}
+
+}
+
+
