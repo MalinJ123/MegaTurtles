@@ -16,7 +16,7 @@ const Footer = () => {
 		setOpen((prevOpen) => !prevOpen);
 		window.scrollTo(0,0)
 	}, [])
-	
+
 	console.log('open:', open); 
 
 	return (
@@ -34,8 +34,12 @@ const Footer = () => {
             <FontAwesomeIcon className="social-icon" icon={faFacebook} />
             <FontAwesomeIcon className="social-icon" icon={faTwitter} />
            </div>
+		   </div>
+
+		   <div className='right-side-container'>
            <p className="right-side-text">Drottninggatan 3<br />Karlstad, Sverige<br />012-3456789</p>
 		   <p className="admin-login-text" onClick={openLogin}>Admin inlogg<FontAwesomeIcon  className="admin-icon" icon={faRightToBracket} /></p>
+		   </div>
 		</footer>
         {open && <AdminLogin onClose={openLogin}/>}
 		</>

@@ -24,8 +24,7 @@ footer {
   cursor: pointer;
   font-size: 18px;
   color: white;
-  grid-column: 3;
-  grid-row: 1;
+  
   text-align: right;
 }
 .left-under{
@@ -34,7 +33,7 @@ color: #ffffff;
 
 }
 .left-container,
-.right-container {
+.right-side-container {
   display: flex;
   flex-direction: column;
   align-items: center;
