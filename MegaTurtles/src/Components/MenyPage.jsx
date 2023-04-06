@@ -6,10 +6,10 @@ import Entrecote from '../assets/Imgs/Entrecote.jpg';
 import sallad from '../assets/Imgs/sallad.jpg';
 import '../Stylesheet/menyPage.css'
 
+function menyPage() {
 
-function MenyPage() {
 
-	const matratter = [
+	const menu = [
 	  {
 		namn: "Rödspätta",
 		bild: panerad,
@@ -44,20 +44,22 @@ function MenyPage() {
   
 	return (
 	  <>
-		<div className="menySection">
-			<h3 className="meny-h3">Meny</h3>
+		<div className="menuSection">
+			<h3 className="menuH3">Menu</h3>
 		</div>
-		{matratter.map((matratt, index) => (
-		  <section className="menySection" key={index}>
+		{menu.map((menuItem, index) => (
+		  <section className="menuSection" key={index}>
 			<p>______________________________</p>
-			<h3>{matratt.namn}</h3>
-			<img className="meny-pic" src={matratt.bild} alt="Beskrivning av din bild" />	
+			<h3 className="menu-item-title">{menuItem.namn}</h3>
+			<img className="menu-pic" src={menuItem.bild} alt="Beskrivning av din bild" />	
 			
-			<section className="beskrivningP">
-				<p>{matratt.beskrivning}</p>
-				<p className="price">{matratt.price}</p>
+			<section className="paraSection">
+				<p className="para-menu-text">{menuItem.beskrivning}</p>
 			</section>
-			<button className="läggtill-Btn">+</button>
+				<p className="price">{menuItem.price}</p>
+				<button className="plusbtn-mobile">+</button>
+				<button className="plusbtn">Lägg till </button>
+				
 		  </section>
 			
 		))}
@@ -68,4 +70,4 @@ function MenyPage() {
 
   
 
-  export default MenyPage 
+  export default menyPage 

@@ -35,6 +35,8 @@ const Header = () => {
 					<FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
 					{show && <HamburgerMenu />}
 					<FontAwesomeIcon className='shopping-cart' icon={faCartShopping} />
+
+				
 				</div>
 
 			{/* </div> */}
