@@ -19,7 +19,7 @@ function App() {
     <div className="App">
      
     <Header />
-    {open && <AdminLogin />}
+   
     <MenyPage /> 
     <Footer />
     </div>

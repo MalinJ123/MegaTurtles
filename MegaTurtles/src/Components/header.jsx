@@ -21,9 +21,10 @@ const Header = () => {
 		setShow(!show)
 	}
 
-	const hamburgerIcon = <FontAwesomeIcon onClick=		{showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
+	const hamburgerIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
 
 	const closeIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className= 'close-icon' icon={faXmark} />
+
 	return (
 		<header>
 
