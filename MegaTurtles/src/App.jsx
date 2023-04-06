@@ -8,7 +8,8 @@ import Footer from './Components/footer.jsx/'
 import './footer.css'
 import Header from './Components/header.jsx'
 import './header.css';
-
+import './mermat.css';
+import MyForm from './Components/mermat'
 
 function App() {
  
@@ -16,9 +17,9 @@ function App() {
     <div className="App">
      
     <Header/>
-    <ContentMain />
-
-     <MenyPage/> 
+    {/* <ContentMain /> */}
+    <MyForm/>
+     {/* <MenyPage/>  */}
     <Footer />
     </div>
   )
