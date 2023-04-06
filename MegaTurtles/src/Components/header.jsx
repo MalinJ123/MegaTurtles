@@ -2,7 +2,6 @@ import headerLogo from '../assets/imgs/MiddagsHörnan.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import React, { useRef } from 'react';
 import HamburgerMenu from './hamburgermenu';
 import '../hamburgermenu.css/';
 import { useState } from 'react';

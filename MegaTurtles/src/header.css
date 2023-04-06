@@ -44,6 +44,11 @@ header {
 
 .menu-bar {
 	margin: 0em 1em 0em 1em;
+	cursor: pointer;
+}
+
+.menu-bar:hover{
+	color: rgb(56, 55, 55)
 }
 
 @media (max-width: 900px) {

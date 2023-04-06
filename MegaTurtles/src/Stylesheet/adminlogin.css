@@ -3,21 +3,38 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	position: relative;
 	height: 100%;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 
 }
 
 .form-container {
-	position: absolute;
+	position: fixed;
 	display: flex;
 	flex-direction: column;
-	background-color: darkgray;
-	padding: 4em;
+	background-color: #6CA695;
+	border-radius: 2em;
+	padding: 1em 4em 4em 4em;
 	width: 30%;
 	text-align: center;
 	margin: 0;
+	top: 17em;
+	border: solid 1px rgb(75, 75, 75);
+	box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 15px;
+	max-width: 250px;
+}
+
+.close-icon-admin {
+	align-self: flex-end;
+	position: relative;
+	left: 2.5em;
+	cursor: pointer;
+
 }
 
 .form-container * {
@@ -25,4 +42,5 @@
 	padding: 0.5em;
 	margin: 0.5em;
 }
+
 

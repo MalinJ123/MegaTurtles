@@ -10,13 +10,14 @@ import AdminLogin from './Components/adminlogin';
 import '../src/Stylesheet/adminlogin.css'
 
 
+
 function App() {
  
   return (
     <div className="App">
      
     <Header />
-    <AdminLogin />
+    {open && <AdminLogin />}
     <MenyPage /> 
     <Footer />
     </div>
