@@ -1,48 +1,90 @@
 footer {
     margin-top: 150px;
-    background-color: #3BB6BE;
+    background-color: #4f5454;
     width: 100%;
     padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: end;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     height: 150px;
 }
-p {
+.left-side {
     padding: 10px;
 	font-size: 1.3em;
     margin: 0;
     text-align: center;
+    color: #ffffff;
 
 }
+.left-under{
+margin-top: 0;
+color: #ffffff;
 
+}
+.left-container,
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
 .social-icons-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
+    flex-grow: 1;
+}
+/* .right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.icons-row {
+  display: flex;
+  margin-top: 30px;
+}
+.social-icon {
+
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 8px;
+  
 }
 
-.social-icon {
-    font-size: 24px;
-    color: #333;
-    margin: 0 8px;
-}
-  
   .social-icon:hover {
     color: #007bff;
   }
 
+.kontakt{
+  padding: 1px;
+	font-size: 1.3em;
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: px;
+}
+.right-side{
+  padding: 10px;
+	font-size: 1.2em;
+    margin-bottom: -20px;
+    text-align: center;
+    color: #ffffff;
+}
   .right-side-text {
-    grid-column: 3;
+  
     text-align: center;
     padding: 10px;
-    margin: 25px;
+    margin-bottom: 5px;
+    color: #ffffff;
 }
+
 @media (max-width: 555px) {
     footer {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto;
+      flex-direction: column;
+    
       height: auto;
       text-align: center;
     }
@@ -52,15 +94,17 @@ p {
     }
   
     .right-side-text {
-      grid-column: 1;
-      grid-row: 3;
+   
       margin: 0px auto;
     }
   
     .social-icons-container {
-      grid-column: 1;
-      grid-row: 2;
-      margin: 10px auto;
+  
+      margin: 5px auto;
+    }
+    .icons-row {
+      display: flex;
+      margin-top: 5px;
     }
   }
   
