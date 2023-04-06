@@ -2,10 +2,12 @@ import headerLogo from '../assets/imgs/MiddagsHörnan.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import React, { useRef } from 'react';
 import HamburgerMenu from './hamburgermenu';
 import '../hamburgermenu.css/';
 import { useState } from 'react';
+
 
 
 const Header = () => {
@@ -19,6 +21,9 @@ const Header = () => {
 		setShow(!show)
 	}
 
+	const hamburgerIcon = <FontAwesomeIcon onClick=		{showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
+
+	const closeIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className= 'close-icon' icon={faXmark} />
 	return (
 		<header>
 
@@ -32,7 +37,8 @@ const Header = () => {
 				</div>
 
 				<div className='menu-bar-container-mobile'>
-					<FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
+					
+					{show ? closeIcon : hamburgerIcon}
 					{show && <HamburgerMenu />}
 					<FontAwesomeIcon className='shopping-cart' icon={faCartShopping} />
 

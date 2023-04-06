@@ -18,13 +18,12 @@ header {
 .menu-bar-container-mobile {
 	display: flex;
 	flex-direction: row;
-	/* justify-content: space-between; */
 	align-items: flex-end;
 }
 
 .hamburger-menu {
 	font-size: 1.5em;
-	margin: 0 0.5em 0 0em;
+	
 
 }
 
