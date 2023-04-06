@@ -6,7 +6,12 @@ import Entrecote from '../assets/Imgs/Entrecote.jpg';
 import sallad from '../assets/Imgs/sallad.jpg';
 import '../Stylesheet/menyPage.css'
 
-function menyPage() {
+
+const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
+	const handleAddToCart = (item) => {
+	  addToCart(item);
+	  
+	};
 
 
 	const menu = [
@@ -41,33 +46,34 @@ function menyPage() {
 		price: "105 Kr"
 	  }
 	];
+	
   
 	return (
-	  <>
-		<div className="menuSection">
+		<>
+		  <div className="menuSection">
 			<h3 className="menuH3">Menu</h3>
-		</div>
-		{menu.map((menuItem, index) => (
-		  <section className="menuSection" key={index}>
-			<p>______________________________</p>
-			<h3 className="menu-item-title">{menuItem.namn}</h3>
-			<img className="menu-pic" src={menuItem.bild} alt="Beskrivning av din bild" />	
-			
-			<section className="paraSection">
+		  </div>
+		  {menu.map((menuItem, index) => (
+			<section className="menuSection" key={index}>
+			  <p>______________________________</p>
+			  <h3 className="menu-item-title">{menuItem.namn}</h3>
+			  <img className="menu-pic" src={menuItem.bild} alt="Beskrivning av din bild" />
+	
+			  <section className="paraSection">
 				<p className="para-menu-text">{menuItem.beskrivning}</p>
+			  </section>
+			  <p className="price">{menuItem.price}</p>
+
+			  <button className="plusbtn-mobile" onClick={() => handleAddToCart(menuItem)}>
+				+
+			  </button>
+			  <button className="plusbtn" onClick={() => handleAddToCart(menuItem)}>
+				Lägg till{" "}
+			  </button>
 			</section>
-				<p className="price">{menuItem.price}</p>
-				<button className="plusbtn-mobile">+</button>
-				<button className="plusbtn">Lägg till </button>
-				
-		  </section>
-			
-		))}
-	  </>
-	);
-  }
-  
-
-  
-
-  export default menyPage 
+		  ))}
+		</>
+	  );
+	};
+	
+	export default MenyPage;

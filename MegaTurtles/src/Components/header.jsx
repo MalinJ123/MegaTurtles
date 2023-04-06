@@ -7,9 +7,12 @@ import React, { useRef, useState } from 'react';
 import HamburgerMenu from './hamburgermenu';
 import '../hamburgermenu.css';
 
-const Header = () => {
+
+
+const Header = (cartItems, setCartItems) => {
 	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 	const [showShoppingCart, setShowShoppingCart] = useState(false);
+	
 
 	const scrollDown = () => {
 		window.scrollTo({
@@ -25,6 +28,8 @@ const Header = () => {
 			setShowShoppingCart(!showShoppingCart);
 		}
 	};
+
+
 
 	const hamburgerIcon = (
 		<FontAwesomeIcon
@@ -65,9 +70,17 @@ const Header = () => {
 				<div>
 					{showShoppingCart && (
 						<div className='ShoppingIcon'>
-							<h2>Overlay Content Here</h2>
-							<button onClick={() => toggleOverlay('cart')}>Close</button>
+						<div>
+							{cartItems.length > 0 ? (<div>{cartItems.map((item, index) => (
+						<div key={index}>
+						<p>{item.name}</p>
+						<p>{item.price}</p>
 						</div>
+					))}</div>): (<p>heeey malin </p>) }
+							
+					</div>
+						<button onClick={() => toggleOverlay('cart')}>Close</button>
+					</div>
 					)}
 				</div>
 			</div>

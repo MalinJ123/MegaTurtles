@@ -11,18 +11,25 @@ import './header.css';
 
 
 
+
+
 function App() {
- 
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (item) => {
+    setCartItems([...cartItems,item]);
+    console.log('detta är cartItems' + cartItems);
+  };
+
   return (
     <div className="App">
-     
-    <Header/>
-    <ContentMain />
-
-     <MenyPage/> 
-    <Footer />
+      <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
+      <ContentMain />
+      <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
+      <Footer />
     </div>
-  )
+  );
 }
+
 
 export default App

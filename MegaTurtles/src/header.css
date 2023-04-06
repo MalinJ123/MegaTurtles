@@ -34,10 +34,11 @@ header {
 .ShoppingIcon {
 	background-color: #080808db;
 	color: white;
-	position: fixed;
-	top: 12.9em;
-	right: 0em;
+	position: absolute;
+	top: 2em;
+	right: -1em;
 	height: 25em;
+	width: 14em;
 	padding: 0;
 }
 .menu-bar-container-wideScreen {
