@@ -1,42 +1,81 @@
-.menySection{
+.menuSection{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
-.meny-h3{
+.menuH3{
 	font-family: 'Parisienne', cursive;
 	font-size: 2em;
+	margin: 0.7em 0 0.2em 0; 
 }
-.meny-pic {
-	width: 50%;
+.menu-pic {
+	width: 60%;
 	max-width: 50%;
 	height: auto;
 	/* border-radius: 100px; */
 	box-shadow: 2px 5px 5px 1px rgba(7, 7, 9, 0.41);
   }
-  .beskrivningP{
+  
+  .menu-item-title{
+	margin: 2em 0em 0.3em 0;
+	font-size: 1.3em;
+	justify-content: flex-start;
+  }
+  .paraSection{
 	width: 50%;
 	max-width: 50%;
 	height: auto;
+	display: flex;
+
+}
+.para-menu-text{
+	margin: 0.6em 0 0.6em 0;
+	font-size: 16px;
+  }
+  .price{
+	display: flex;
+	width: 10em;
+	align-items: end;
+	justify-content: end;
+	font-weight: bold;
   }
 
-  .läggtill-Btn{
-	width: 2em;
-	height: 1.5em;
+  .plusbtn{
+	cursor: pointer;
+	/* width:12em; */
+	height:2em;
+	visibility: hidden;
+
   }
 
-  @media screen and (min-width: 768px ) {
-	.meny-pic{
+  .plusbtn:hover{
+	background-color: rgb(22, 147, 105);
+	color:rgb(255, 255, 255);
+
+  }
+  .plusbtn-mobile{
+	visibility: visible;
+  }
+
+  @media screen and (min-width: 740px) {
+	.menuH3{
+		font-size: 3em;
+		
+	}
+	.menu-pic{
 		width: 30%;
  		height: 200px;
   		object-fit: cover; 
 	}
-	.beskrivningP{
+	
+	.paraSection{
 		display: flex;
-		justify-content: space-between;
 		align-items: center; 
 		width: 30%;
-		flex-direction: column;
+	  }
+	  .para-menu-text{
+		margin: 0.6em 0 0.6em 0;
+		font-size: 19px;
 	  }
 	
 	  .läggtill-Btn {
@@ -44,9 +83,19 @@
 	  }
 	  .price{
 		/* border: 2px solid black;  */
-		width: 12em;
-		align-items: end;
+		width: 17em;
 		justify-content: end;
+		font-size: 1.2em;
+	  }
+	 
+	  .plusbtn{
+		cursor: pointer;
+		/* width:2em; */
+		height:2em;
+		visibility: visible;
+	
+	  }
+	  .plusbtn-mobile{
+		visibility: hidden;
 	  }
   }
-  

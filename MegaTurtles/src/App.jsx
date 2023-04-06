@@ -16,9 +16,9 @@ function App() {
     <div className="App">
      
     <Header/>
-    {/* <ContentMain /> */}
+     <ContentMain />
 
-     <MenyPage/>
+     {/* <MenyPage/>  */}
     <Footer />
     </div>
   )
