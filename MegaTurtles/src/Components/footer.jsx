@@ -14,7 +14,7 @@ const Footer = () => {
 
 	return (
 		<footer>
-			<p> Öppettider<br />Måndag-Fredag<br />08:00-22:00<br />Lördag-Söndag<br />10:00-22:00</p>
+			<p className="left-side"> Öppettider<br />Måndag-Fredag<br />08:00-22:00<br />Lördag-Söndag<br />10:00-22:00</p>
             <div className="social-icons-container">
 			<FontAwesomeIcon className="social-icon" icon={faInstagram} />
             <FontAwesomeIcon className="social-icon" icon={faFacebook} />
