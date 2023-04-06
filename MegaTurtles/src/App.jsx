@@ -19,7 +19,7 @@ function App() {
     <div className="App">
      
     <Header />
-   
+   <ContentMain />
     <MenyPage /> 
     <Footer />
     </div>
