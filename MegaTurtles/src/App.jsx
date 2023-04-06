@@ -9,6 +9,8 @@ import './footer.css'
 import Header from './Components/header.jsx'
 import './header.css';
 
+import  ShoppingIcon from './Components/payment'
+
 
 function App() {
  
@@ -16,6 +18,7 @@ function App() {
     <div className="App">
      
     <Header/>
+< ShoppingIcon/>
     <ContentMain />
 
      <MenyPage/> 

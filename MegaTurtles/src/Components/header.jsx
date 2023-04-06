@@ -34,7 +34,7 @@ const Header = () => {
 				<div className='menu-bar-container-mobile'>
 					<FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
 					{show && <HamburgerMenu />}
-					<FontAwesomeIcon className='shopping-cart' icon={faCartShopping} />
+					<FontAwesomeIcon className='shopping-cart'  icon={faCartShopping} />
 
 				
 				</div>
