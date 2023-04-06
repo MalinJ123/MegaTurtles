@@ -30,7 +30,7 @@ const Footer = () => {
            <p className="right-side-text">Drottninggatan 3<br />Karlstad, Sverige<br />012-3456789</p>
 		   <p className="admin-login-text" onClick={openLogin}>Admin inlogg<FontAwesomeIcon  className="admin-icon" icon={faRightToBracket} /></p>
 		</footer>
-        {open && <AdminLogin onClose={closeLogin}/>}
+        {open && <AdminLogin onClose={openLogin}/>}
 		</>
 	)
 } 

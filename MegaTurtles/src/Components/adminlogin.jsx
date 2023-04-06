@@ -1,14 +1,23 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import { preprocessCSS } from 'vite';
 
 
+const AdminLogin = (props) => {
+	const [close, setClose] = useState(false)
+	const [password, setPassword] = useState('')
+	const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
+	const [hasSubmitted, setHasSubmitted] = useState(false)
+	const correctPassword = 'Mums'
 
-const AdminLogin = () => {
-const [close, setClose] = useState(false)
 	const checkPassword = ()=> {
-
+		setHasSubmitted(true)
+		if (password === correctPassword) {
+			setIsPasswordCorrect(true)
+		} else {
+			setIsPasswordCorrect(false)
+		}
+		
 	}
 
 	const closeLogin = () => {
@@ -25,6 +34,7 @@ const [close, setClose] = useState(false)
 				
 				<h2 className="login">Logga in</h2>
 				<input className="input" type= "text" placeholder= "Admin"></input>
+				{hasSubmitted && !isPasswordCorrect && <p>Fel lösenord</p>}
 				<input className="input" type= "text" placeholder= "Lösenord"></input>
 				<button onClick={checkPassword}>Logga in</button>
 			</div>
