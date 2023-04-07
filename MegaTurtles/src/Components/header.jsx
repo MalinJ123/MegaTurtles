@@ -9,7 +9,7 @@ import '../hamburgermenu.css';
 
 
 
-const Header = (cartItems, setCartItems) => {
+const Header =  ({ cartItems, setCartItems }) => {
 	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 	const [showShoppingCart, setShowShoppingCart] = useState(false);
 	
@@ -76,7 +76,9 @@ const Header = (cartItems, setCartItems) => {
 						<p>{item.name}</p>
 						<p>{item.price}</p>
 						</div>
-					))}</div>): (<p>heeey malin </p>) }
+					))}
+					</div>):
+					 (<p>heeey malin </p>) }
 							
 					</div>
 						<button onClick={() => toggleOverlay('cart')}>Close</button>

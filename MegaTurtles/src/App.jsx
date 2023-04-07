@@ -17,8 +17,11 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    setCartItems([...cartItems,item]);
+    setCartItems([...cartItems, item]);
     console.log('detta är cartItems' + cartItems);
+    console.log('detta är item' + item);
+    console.log('detta är SetcartItems' + setCartItems);
+
   };
 
   return (
