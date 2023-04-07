@@ -13,6 +13,12 @@ const Header =  ({ cartItems, setCartItems }) => {
 	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 	const [showShoppingCart, setShowShoppingCart] = useState(false);
 	
+	function removeItem(item) {
+		setCartItems(prevItems => prevItems.filter(cartItem => cartItem !== item));
+	  }
+	  
+	  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
 
 	const scrollDown = () => {
 		window.scrollTo({
@@ -69,20 +75,26 @@ const Header =  ({ cartItems, setCartItems }) => {
 				/>
 				<div>
 					{showShoppingCart && (
-						<div className='ShoppingIcon'>
-						<div>
-							{cartItems.length > 0 ? (<div>{cartItems.map((item, index) => (
-						<div key={index}>
-						<p>{item.name}</p>
-						<p>{item.price}</p>
-						</div>
-					))}
-					</div>):
-					 (<p>heeey malin </p>) }
-							
+						<div className='CartOverlay'>
+						
+							{cartItems.length > 0 ? (
+							cartItems.map((item, index) => (
+							<div key={index}>
+								<p className ="CartItem-name">{item.name}	
+								<p className="CartItem-price">{item.price}</p>
+								<button onClick={() => removeItem(item)}> - </button></p>
+										
+    					</div>
+					 ))) : ( <p> Din varukorg är tom </p>)}	
+					
+						{/* <button onClick={() => toggleOverlay('cart')}>Close</button> */}
+						<div className="TotalPrice-container">
+						<p className='total-price'>Total: {totalPrice}</p>
+						</div>	
+					
 					</div>
-						<button onClick={() => toggleOverlay('cart')}>Close</button>
-					</div>
+					
+					
 					)}
 				</div>
 			</div>

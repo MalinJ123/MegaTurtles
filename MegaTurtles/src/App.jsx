@@ -10,9 +10,6 @@ import Header from './Components/header.jsx'
 import './header.css';
 
 
-
-
-
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
@@ -27,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
-      <ContentMain />
+      {/* <ContentMain /> */}
       <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
       <Footer />
     </div>

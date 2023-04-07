@@ -11,7 +11,12 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 	const handleAddToCart = (item) => {
 	  addToCart(item);
 	};
-  
+// 	const [clickCount, setClickCount] = useState(0);
+//     handleAddToCart({ name: menuItem.namn, price: menuItem.price });
+//     setClickCount(clickCount + 1);
+//   }
+
+
 	const menu = [
 	  {
 		namn: "Rödspätta",
@@ -26,7 +31,7 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 		price: 125 ,
 	  },
 	  {
-		namn: "Grillad Kyckling",
+		namn: "Kyckling",
 		bild: kyckling,
 		beskrivning: "Grillad kyckling med pommens, sallad, tomater och kärlek",
 		price: 149,
@@ -45,9 +50,9 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 	  }
 	];
 	
-  
+	
 	return (
-	  <>
+		<>
 		<div className="menuSection">
 		  <h3 className="menuH3">Menu</h3>
 		</div>
@@ -65,9 +70,10 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 			<button className="plusbtn-mobile" onClick={() => handleAddToCart({ name: menuItem.namn, price: menuItem.price })}>
 			  +
 			</button>
-			<button className="plusbtn" onClick={() => handleAddToCart({ name: menuItem.namn, price: menuItem.price })}>
-			  Lägg till{" "}
-			</button>
+
+			<button className="plusbtn" onClick={() => {
+				handleAddToCart({ name: menuItem.namn, price: menuItem.price });
+				setClickCount(clickCount + 1);}}> Lägg till </button>
 		  </section>
 		))}
 	  </>
