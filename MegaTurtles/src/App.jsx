@@ -15,9 +15,9 @@ function App() {
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
-    console.log('detta är cartItems' + cartItems);
-    console.log('detta är item' + item);
-    console.log('detta är SetcartItems' + setCartItems);
+    // console.log('detta är cartItems' + cartItems);
+    // console.log('detta är item' + item);
+    // console.log('detta är SetcartItems' + setCartItems);
 
   };
 

@@ -7,11 +7,16 @@ import sallad from '../assets/Imgs/sallad.jpg';
 import '../Stylesheet/menyPage.css'
 
 
+
+// const [clickCount, setClickCount] = useClickState(0);
+
+
 const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 	const handleAddToCart = (item) => {
 	  addToCart(item);
 	};
-// 	const [clickCount, setClickCount] = useState(0);
+
+
 //     handleAddToCart({ name: menuItem.namn, price: menuItem.price });
 //     setClickCount(clickCount + 1);
 //   }
@@ -74,6 +79,7 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 			<button className="plusbtn" onClick={() => {
 				handleAddToCart({ name: menuItem.namn, price: menuItem.price });
 				setClickCount(clickCount + 1);}}> Lägg till </button>
+		   {/* <p>Antal klick: {clickCount}</p> */}
 		  </section>
 		))}
 	  </>
@@ -81,4 +87,3 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
   };
   
   export default MenyPage;
-  
