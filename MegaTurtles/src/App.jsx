@@ -8,6 +8,10 @@ import Footer from './Components/footer.jsx/'
 import './footer.css'
 import Header from './Components/header.jsx'
 import './header.css';
+import AdminLogin from './Components/adminlogin';
+import '../src/Stylesheet/adminlogin.css'
+import UserForm from './Components/Userform'
+import './Stylesheet/userForm.css'
 
 
 function App() {
@@ -23,10 +27,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
-      <ContentMain />
-      <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
-      <Footer />
+     
+    <Header />
+    <ContentMain cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
+    <UserForm />
+    <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
+    <Footer />
     </div>
   );
 }

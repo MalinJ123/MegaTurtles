@@ -35,23 +35,9 @@ const Header =  ({ cartItems, setCartItems }) => {
 		}
 	};
 
+	const hamburgerIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
 
-
-	const hamburgerIcon = (
-		<FontAwesomeIcon
-			onClick={() => toggleOverlay('hamburger')}
-			className='hamburger-menu'
-			icon={faBars}
-		/>
-	);
-
-	const closeIcon = (
-		<FontAwesomeIcon
-			onClick={() => toggleOverlay('hamburger')}
-			className='close-icon'
-			icon={faXmark}
-		/>
-	);
+	const closeIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className= 'close-icon' icon={faXmark} />
 
 	return (
 		<header>
