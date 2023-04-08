@@ -28,8 +28,8 @@ function App() {
   return (
     <div className="App">
      
-    <Header />
-    <ContentMain cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
+    <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart}/>
+    <ContentMain/>
     <UserForm />
     <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
     <Footer />

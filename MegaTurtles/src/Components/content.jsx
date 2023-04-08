@@ -1,6 +1,11 @@
+// import React from 'react';
+// import { useState } from 'react';
+// import bord from '../assets/imgs/middagsbord.jpg';
+// import './ContentMain.css';
+
 import { useState } from "react"
 import bord from '../assets/imgs/middagsbord.jpg'
-import './ContentMain.css'
+import '../ContentMain.css'
 
 const ContentMain = () => {
 
