@@ -4,7 +4,7 @@
 	justify-content:center;
 	align-items: center;
 }
-
+/*formuläret längst ner på sidan*/
 .user-form {
 	margin: 2em; 
 	padding: 2em 2em 2em 1em; 
@@ -14,10 +14,11 @@
 	max-width: 350px;
 	width: 70%; 
 }
-
+/*Texten för formuläret*/
 .user-form-header {
 	padding: 0em 1em 1em 0.5em; 
 	font-weight: bold;
+	font-size: 18px;
 }
 
 
@@ -37,6 +38,7 @@
 	padding: 0.5em; 
 	border-radius: 0.5em;
 	border: 1px solid rgb(165, 181, 165); 
+	margin: 0.3em; 
 }
 
 .message-box {
@@ -44,6 +46,7 @@
 	padding: 0.5em; 
 	border: 1px solid  rgb(165, 181, 165); 
 	resize: none;
+	margin: 0.3em; 
 }
 
 /*Knappen i formuläret*/
@@ -57,20 +60,21 @@
 
 .form-button:hover {
 	background-color: #6CA695;
+	cursor: pointer;
 }
 
 /*foto på kontakta oss*/
 .contactUs {
 	margin: 1em;  
-	max-width: 300px;
-	height: 200px;
+	max-width: 250px;
+	height: 300px;
 	border-radius: 100px;
 	box-shadow: 5px 5px 15px rgba(0,0,0, 0.5);
 	display: none;
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
 
 	.contact {  
 		display: flex;

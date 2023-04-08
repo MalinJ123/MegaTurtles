@@ -1,6 +1,6 @@
 import { useState } from "react"
 import '../Stylesheet/userForm.css'
-import contactUs from '../assets/imgs/kontaktaoss.png'
+import contactUs from '../assets/imgs/contactus.jpg'
 
 function UserForm() {
 	const [name, setName] = useState('');
