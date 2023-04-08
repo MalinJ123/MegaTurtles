@@ -10,7 +10,8 @@ import Header from './Components/header.jsx'
 import './header.css';
 import AdminLogin from './Components/adminlogin';
 import '../src/Stylesheet/adminlogin.css'
-
+import UserForm from './Components/Userform'
+import './Stylesheet/userForm.css'
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
     <div className="App">
      
     <Header />
-   <ContentMain />
+    <ContentMain />
+    <UserForm />
     <MenyPage /> 
     <Footer />
     </div>
