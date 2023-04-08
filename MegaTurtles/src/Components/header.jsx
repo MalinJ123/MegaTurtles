@@ -80,16 +80,16 @@ const Header =  ({ cartItems, setCartItems }) => {
 							{cartItems.length > 0 ? (
 							cartItems.map((item, index) => (
 							<div key={index}>
-								<p className ="CartItem-name">{item.name}	
+								<p className ="CartItem-name">{item.name} 	
 								<p className="CartItem-price">{item.price} kr </p>
 								<button onClick={() => removeItem(item)}> - </button></p>
 										
     					</div>
-					 ))) : ( <p> Din varukorg är tom </p>)}	
+					 ))) : ( <p className="emptyOverlay"> Din varukorg är tom </p>)}	
 					
 						<div className="TotalPrice-container">
 						<p className='total-price'>Total: {totalPrice} kr</p>
-						<button onClick={() => toggleOverlay('cart')}>Betalning</button>
+						<button className="CartOverlay-Btn" onClick={() => toggleOverlay('cart')}>Betalning</button>
 						</div>	
 					
 					</div>
