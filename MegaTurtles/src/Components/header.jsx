@@ -12,6 +12,16 @@ import '../hamburgermenu.css';
 const Header =  ({ cartItems, setCartItems }) => {
 	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 	const [showShoppingCart, setShowShoppingCart] = useState(false);
+
+	function showNav() {
+		if (!showHamburgerMenu) {
+		setShowHamburgerMenu(true)
+	}
+	 else {
+		setShowHamburgerMenu(false)
+	}
+}
+	
 	
 	function removeItem(item) {
 		setCartItems(prevItems => prevItems.filter(cartItem => cartItem !== item));
@@ -35,9 +45,9 @@ const Header =  ({ cartItems, setCartItems }) => {
 		}
 	};
 
-	const hamburgerIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
+	// const hamburgerIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
 
-	const closeIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className= 'close-icon' icon={faXmark} />
+	// const closeIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className= 'close-icon' icon={faXmark} />
 
 	return (
 		<header>
@@ -52,8 +62,8 @@ const Header =  ({ cartItems, setCartItems }) => {
 			</div>
 
 			<div className='menu-bar-container-mobile'>
-				{showHamburgerMenu ? closeIcon : hamburgerIcon}
-				{showHamburgerMenu && <HamburgerMenu />}
+				{!showHamburgerMenu ? (<FontAwesomeIcon onClick={() => {showNav()}} className='hamburger-menu' icon= {faBars} />) : (<FontAwesomeIcon onClick={() => {showNav()}} className= 'close-icon' icon={faXmark} />)}
+				{showHamburgerMenu ? (<HamburgerMenu />) : (null) }
 				<FontAwesomeIcon
 					className='shopping-cart'
 					onClick={() => toggleOverlay('cart')}
@@ -78,8 +88,10 @@ const Header =  ({ cartItems, setCartItems }) => {
 					
 					</div>
 					<div className="TotalPrice-container">
+						<div className='total'>
 						<p className='total-price'>Total: {totalPrice} kr</p>
 						<button className="CartOverlay-Btn" onClick={() => toggleOverlay('cart')}>Betalning</button>
+						</div>
 						</div>
 					</div>
 					

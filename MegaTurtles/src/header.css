@@ -57,14 +57,6 @@ header {
 	padding-bottom: 1em;
 
 }
-.Cart-list::-webkit-scrollbar-track {
-	background: hotpink;
-}
-.Car-list::-webkit-scrollbar{
-	background: hotpink;
-
-
-}
 .CartItem-price{
 	color:white;
 	font-size: 1.2em;
@@ -73,7 +65,7 @@ header {
 }
 .TotalPrice-container{
 	/* border: 2px  solid white; */
-	border-top: 2px solid white;
+	/* border-top: 2px solid white; */
 	/* border-bottom: 2px solid white; */
 display: flex;
 justify-content: center;
@@ -90,6 +82,7 @@ padding:1em 0px 1em 0px;
 	font-size: 1.4em;
 	padding-bottom: 0.5em;
 }
+
 .CartOverlay-Btn:hover{
 	background-color: green;
 }
@@ -151,7 +144,7 @@ padding:1em 0px 1em 0px;
 		grid-column: 3;
 	}
 	.CartOverlay {
-		background-color: #080808db;
+		background-color: #222222fa;
 		color: white;
 		position: absolute;
 		top: 2.1em;
@@ -162,12 +155,11 @@ padding:1em 0px 1em 0px;
 	}
 
 	.CartOverlay-Btn{
-		margin-left: 6em;
 		margin-top: 1em;
 	}
 	.TotalPrice-container{
 		/* border: 2px  solid white; */
-		border-top: 2px solid white;
+		/* border-top: 2px solid white; */
 		/* border-bottom: 2px solid white; */
 	display: flex;
 	justify-content: center;
@@ -177,6 +169,16 @@ padding:1em 0px 1em 0px;
 	flex-direction: column;
 	padding:1em 0px 1em 0px;
 	
+	}
+
+	.total{
+		border-top: 2px solid white;
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
 	}
 	
 	.total-price{

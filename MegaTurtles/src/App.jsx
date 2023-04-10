@@ -19,9 +19,7 @@ function App() {
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
-    // console.log('detta är cartItems' + cartItems);
-    // console.log('detta är item' + item);
-    // console.log('detta är SetcartItems' + setCartItems);
+ 
 
   };
 
@@ -29,8 +27,8 @@ function App() {
     <div className="App">
      
     <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart}/>
-    {/* <ContentMain/> */}
-    {/* <UserForm /> */}
+    <ContentMain/>
+    <UserForm />
     <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
     <Footer />
     </div>
