@@ -30,6 +30,13 @@ header {
 	margin: 0em 0em 0 0;
 
 }
+.emptyOverlay,
+.CartItemContainer{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 1em;
+}
 
 .CartOverlay{
 	background-color: #080808e3;
@@ -40,13 +47,23 @@ header {
 	height: 25em;
 	width: 14em;
 	border-radius: 12px 0 0 12px;
-}
-.emptyOverlay,
-.CartItem-name {
+
 	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	margin-top: 1em;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.Cart-list{
+	overflow-y:scroll;
+	padding-bottom: 1em;
+
+}
+.Cart-list::-webkit-scrollbar-track {
+	background: hotpink;
+}
+.Car-list::-webkit-scrollbar{
+	background: hotpink;
+
+
 }
 .CartItem-price{
 	color:white;
@@ -58,14 +75,20 @@ header {
 	/* border: 2px  solid white; */
 	border-top: 2px solid white;
 	/* border-bottom: 2px solid white; */
-	bottom: 3em;
-	left: 4em;
-	position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 20%;
+flex-direction: column;
+padding:1em 0px 1em 0px;
+
 }
+
 .total-price{
 	text-align: center;
-	margin-top: 2em;
 	font-size: 1.4em;
+	padding-bottom: 0.5em;
 }
 .CartOverlay-Btn:hover{
 	background-color: green;
@@ -137,20 +160,41 @@ header {
 		width: 25em;
 		padding: 0;
 	}
-	.TotalPrice-container{
-		/* border: 2px  solid white; */
-		border-top: 2px solid white;
-		/* border-bottom: 2px solid white; */
-		bottom: 3em;
-		left: 4em;
-		position: absolute;
-		/* border: 2px solid green; */
-		width: 15em;
 
-	}
 	.CartOverlay-Btn{
 		margin-left: 6em;
 		margin-top: 1em;
 	}
+	.TotalPrice-container{
+		/* border: 2px  solid white; */
+		border-top: 2px solid white;
+		/* border-bottom: 2px solid white; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 20%;
+	flex-direction: column;
+	padding:1em 0px 1em 0px;
 	
+	}
+	
+	.total-price{
+		text-align: center;
+		font-size: 1.4em;
+		padding-bottom: 0.5em;
+	}
+	/* .CartOverlay::-webkit-scrollbar-track {
+		background: hotpink;
+		
+
+	}
+	.Cart-list::-webkit-scrollbar{
+		background: hotpink;
+		width: 60px;
+	}	
+	
+	.Cart-list::-webkit-scrollbar-thumb {
+		background: #e50000;
+	  } */
   }

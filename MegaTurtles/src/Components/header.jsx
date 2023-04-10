@@ -62,22 +62,25 @@ const Header =  ({ cartItems, setCartItems }) => {
 				<div>
 					{showShoppingCart && (
 						<div className='CartOverlay'>
-						
+						<div className="Cart-list">
 							{cartItems.length > 0 ? (
 							cartItems.map((item, index) => (
-							<div key={index}>
-								<p className ="CartItem-name">{item.name} 	
+							<div className='CartItemContainer' key={index}>
+								<p className ="CartItem-name">{item.name} 	</p>
 								<p className="CartItem-price">{item.price} kr </p>
-								<button onClick={() => removeItem(item)}> - </button></p>
+								<button onClick={() => removeItem(item)}> - </button>
+								
 										
     					</div>
 					 ))) : ( <p className="emptyOverlay"> Din varukorg är tom </p>)}	
 					
-						<div className="TotalPrice-container">
+					
+					
+					</div>
+					<div className="TotalPrice-container">
 						<p className='total-price'>Total: {totalPrice} kr</p>
 						<button className="CartOverlay-Btn" onClick={() => toggleOverlay('cart')}>Betalning</button>
-						</div>	
-					
+						</div>
 					</div>
 					
 					

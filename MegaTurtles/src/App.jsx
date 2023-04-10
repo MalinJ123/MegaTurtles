@@ -29,8 +29,8 @@ function App() {
     <div className="App">
      
     <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart}/>
-    <ContentMain/>
-    <UserForm />
+    {/* <ContentMain/> */}
+    {/* <UserForm /> */}
     <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
     <Footer />
     </div>
