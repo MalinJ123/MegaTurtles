@@ -133,7 +133,6 @@ padding:1em 0px 1em 0px;
 		grid-column: 2;
 	}
 
-
 	.menu-bar-container-wideScreen {
 		grid-row: 2;
 		grid-column: 2;
@@ -158,9 +157,6 @@ padding:1em 0px 1em 0px;
 		margin-top: 1em;
 	}
 	.TotalPrice-container{
-		/* border: 2px  solid white; */
-		/* border-top: 2px solid white; */
-		/* border-bottom: 2px solid white; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -189,13 +185,11 @@ padding:1em 0px 1em 0px;
 	/* .CartOverlay::-webkit-scrollbar-track {
 		background: hotpink;
 		
-
 	}
 	.Cart-list::-webkit-scrollbar{
 		background: hotpink;
 		width: 60px;
 	}	
-	
 	.Cart-list::-webkit-scrollbar-thumb {
 		background: #e50000;
 	  } */

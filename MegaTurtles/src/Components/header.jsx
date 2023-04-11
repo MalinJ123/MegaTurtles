@@ -22,7 +22,6 @@ const Header =  ({ cartItems, setCartItems }) => {
 	}
 }
 	
-	
 	function removeItem(item) {
 		setCartItems(prevItems => prevItems.filter(cartItem => cartItem !== item));
 	  }
@@ -78,13 +77,9 @@ const Header =  ({ cartItems, setCartItems }) => {
 							<div className='CartItemContainer' key={index}>
 								<p className ="CartItem-name">{item.name} 	</p>
 								<p className="CartItem-price">{item.price} kr </p>
-								<button onClick={() => removeItem(item)}> - </button>
-								
-										
+								<button onClick={() => removeItem(item)}> - </button>										
     					</div>
 					 ))) : ( <p className="emptyOverlay"> Din varukorg är tom </p>)}	
-					
-					
 					
 					</div>
 					<div className="TotalPrice-container">
@@ -94,7 +89,6 @@ const Header =  ({ cartItems, setCartItems }) => {
 						</div>
 						</div>
 					</div>
-					
 					
 					)}
 				</div>
