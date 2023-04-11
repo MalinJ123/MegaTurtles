@@ -45,4 +45,14 @@
 	margin: 0.5em;
 }
 
+.label-style {
+	align-self: flex-start;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.error-message {
+	color: rgb(171, 31, 31);
+}
+
 
