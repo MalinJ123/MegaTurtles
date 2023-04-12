@@ -39,10 +39,7 @@ function AdminPage() {
   
     return (
       <>
-<section className="MenuPageContainer">
-<h1 className='AdminPage'>AdminPage</h1>
-
-      <section className="Admin-Form-Container">
+      <section className="Admin-Form-Container"><h1 className='AdminPage'>AdminPage</h1>
         <form onSubmit={handleSubmit} className="my-form">
           <h2 className="EditMenu">Redigera Meny alternativ</h2>
         <label className="my-label">
@@ -81,8 +78,12 @@ function AdminPage() {
           Radera
         </button>
       </form></section>
+<section className="MenuPageContainer">
 
-      {/* <MenyPage/> */}
+
+      
+
+      <MenyPage/>
       {/* <Menu>
       
         {menuItems.map((item) => (

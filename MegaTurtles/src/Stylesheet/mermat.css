@@ -10,6 +10,8 @@
 .Admin-Form-Container{
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .my-form {
     margin: 0 auto;
