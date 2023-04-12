@@ -7,13 +7,25 @@ footer {
     align-items: center;
     height: 150px;
 }
+
 .left-side {
     padding: 10px;
 	font-size: 1.3em;
     margin: 0;
     text-align: center;
-    color: #ffffff;
+    color: white;
+}
 
+.admin-icon {
+  padding-left: 0.5em;
+}
+
+.admin-login-text {
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  
+  text-align: right;
 }
 .left-under{
 margin-top: 0;
@@ -21,7 +33,7 @@ color: #ffffff;
 
 }
 .left-container,
-.right-container {
+.right-side-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +87,8 @@ color: #ffffff;
     color: #ffffff;
 }
   .right-side-text {
-  
+    grid-column: 3;
+    grid-row: 1;
     text-align: center;
     padding: 10px;
     margin-bottom: 5px;
@@ -85,13 +98,22 @@ color: #ffffff;
 @media (max-width: 555px) {
     footer {
       flex-direction: column;
-    
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
       height: auto;
       text-align: center;
     }
   
     footer p {
       font-size: 1em; /* Ändra font-size här */
+    }
+
+    .admin-login-text {
+    
+      grid-column: 1;
+      grid-row: 4;
+      text-align: center;
+      
     }
   
     .right-side-text {

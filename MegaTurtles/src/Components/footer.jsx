@@ -2,9 +2,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import AdminLogin from './adminlogin';
+import { useState } from 'react';
+import { useCallback } from 'react';
+
 
 const Footer = () => {
+	const [open, setOpen] = useState(false);
+
+	const openLogin = useCallback(() => {
+		console.log('Funktionen körs');
+		setOpen((prevOpen) => !prevOpen);
+		window.scrollTo(0,0)
+	}, [])
+
+	console.log('open:', open); 
+
 	return (
+		<>
 		<footer>
 			<div className="left-container">
 			<p className="left-side"> Öppettider</p>
@@ -18,14 +34,15 @@ const Footer = () => {
             <FontAwesomeIcon className="social-icon" icon={faFacebook} />
             <FontAwesomeIcon className="social-icon" icon={faTwitter} />
            </div>
-		  </div>
-		 
-		   <div className="right-container">
-		   <p className="right-side">Drottninggatan 3</p>
-           <p className="right-side-text">Karlstad, Sverige<br />012-3456789</p>
-		</div>
+		   </div>
+
+		   <div className='right-side-container'>
+           <p className="right-side-text">Drottninggatan 3<br />Karlstad, Sverige<br />012-3456789</p>
+		   <p className="admin-login-text" onClick={openLogin}>Admin inlogg<FontAwesomeIcon  className="admin-icon" icon={faRightToBracket} /></p>
+		   </div>
 		</footer>
-       
+        {open && <AdminLogin onClose={openLogin}/>}
+		</>
 	)
 } 
 

@@ -10,19 +10,32 @@ import Header from './Components/header.jsx'
 import './header.css';
 import './mermat.css';
 import MyForm from './Components/mermat'
+import AdminLogin from './Components/adminlogin';
+import '../src/Stylesheet/adminlogin.css'
+import UserForm from './Components/Userform'
+import './Stylesheet/userForm.css'
+
 
 function App() {
- 
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+
+  };
+
   return (
     <div className="App">
      
-    <Header/>
-    {/* <ContentMain /> */}
+    <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart}/>
+    <ContentMain/>
+    <UserForm />
     <MyForm/>
-     {/* <MenyPage/>  */}
+    <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
     <Footer />
     </div>
-  )
+  );
 }
+
 
 export default App

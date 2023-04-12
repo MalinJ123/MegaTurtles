@@ -3,52 +3,99 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import HamburgerMenu from './hamburgermenu';
-import '../hamburgermenu.css/';
-import { useState } from 'react';
+import '../hamburgermenu.css';
 
 
 
-const Header = () => {
-	const [show, setShow] = useState(false);
+const Header =  ({ cartItems, setCartItems }) => {
+	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+	const [showShoppingCart, setShowShoppingCart] = useState(false);
+
+	function showNav() {
+		if (!showHamburgerMenu) {
+		setShowHamburgerMenu(true)
+	}
+	 else {
+		setShowHamburgerMenu(false)
+	}
+}
+	
+	function removeItem(item) {
+		setCartItems(prevItems => prevItems.filter(cartItem => cartItem !== item));
+	  }
+	  
+	  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
+
 	const scrollDown = () => {
-		window.scrollTo({top: document.body.scrollHeight - window.innerHeight, behavior: 'smooth'
-		})
-	}
+		window.scrollTo({
+			top: document.body.scrollHeight - window.innerHeight,
+			behavior: 'smooth'
+		});
+	};
 
-	const showHamburgerMenu = () => {
-		setShow(!show)
-	}
+	const toggleOverlay = (icon) => {
+		if (icon === 'hamburger') {
+			setShowHamburgerMenu(!showHamburgerMenu);
+		} else if (icon === 'cart') {
+			setShowShoppingCart(!showShoppingCart);
+		}
+	};
 
-	const hamburgerIcon = <FontAwesomeIcon onClick=		{showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
-
-	const closeIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className= 'close-icon' icon={faXmark} />
 	return (
 		<header>
+			<img className='header-logo' src={headerLogo} alt='Logo' />
 
-			<img className='header-logo' src={headerLogo} alt="Logo"/>
-			{/* <div className='main-container-menu'> */}
+			<div className='menu-bar-container-wideScreen'>
+				<h2 className='menu-bar'>Meny</h2>
+				<h2 className='menu-bar'>Om MiddagsHörnan</h2>
+				<h2 onClick={scrollDown} className='menu-bar'>
+					Kontakt
+				</h2>
+			</div>
 
-				<div className='menu-bar-container-wideScreen'>
-					<h2 className='menu-bar'>Meny</h2>
-					<h2 className='menu-bar'>Om MiddagsHörnan</h2>
-					<h2 onClick={scrollDown} className='menu-bar'>Kontakt</h2>
-				</div>
-
-				<div className='menu-bar-container-mobile'>
+			<div className='menu-bar-container-mobile'>
+				{!showHamburgerMenu ? (<FontAwesomeIcon onClick={() => {showNav()}} className='hamburger-menu' icon= {faBars} />) : (<FontAwesomeIcon onClick={() => {showNav()}} className= 'close-icon' icon={faXmark} />)}
+				{showHamburgerMenu ? (<HamburgerMenu />) : (null) }
+				<FontAwesomeIcon
+					className='shopping-cart'
+					onClick={() => toggleOverlay('cart')}
+					icon={faCartShopping}
+				/>
+				<div>
+					{showShoppingCart && (
+						<div className='CartOverlay'>
+						<div className="Cart-list">
+ 							 {cartItems.length > 0 ? (
+  						  <div>
+							<h4 className="FullOverlay">Din varukorg</h4>
+							{cartItems.map((item, index) => (
+								<div className="CartItemContainer" key={index}>
+								<p className="CartItem-name">{item.name}</p>
+								<p className="CartItem-price">{item.price} kr</p>
+								<button onClick={() => removeItem(item)}> - </button>
+       					 </div>
+						))}
+						</div>
+					) : (
+						<h4 className="emptyOverlay">Din varukorg är tom</h4>
+					)}
+					</div>
+						<div className="TotalPrice-container">
+						<div className='total'>
+						<p className='total-price'>Total: {totalPrice} kr</p>
+						<button className="CartOverlay-Btn" onClick={() => toggleOverlay('cart')}>Betalning</button>
+						</div>
+						</div>
+					</div>
 					
-					{show ? closeIcon : hamburgerIcon}
-					{show && <HamburgerMenu />}
-					<FontAwesomeIcon className='shopping-cart' icon={faCartShopping} />
-
-				
+					)}
 				</div>
-
-			{/* </div> */}
+			</div>
 		</header>
-	)
+	);
+};
 
-}
-
-export default Header
+export default Header;
