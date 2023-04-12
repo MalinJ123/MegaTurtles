@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import panerad from '../assets/imgs/panerad.jpg';
 import Lammstek from '../assets/Imgs/lammstek.jpg';
 import kyckling from '../assets/Imgs/kyckling.jpg';
 import Entrecote from '../assets/Imgs/Entrecote.jpg';
 import sallad from '../assets/Imgs/sallad.jpg';
 import Drycker from '../assets/imgs/Drycker.jpg'
+=======
+>>>>>>> 39752419e8c45b3f27552d7dfbc1502c8a4b270e
 import '../Stylesheet/menyPage.css';
+import { menu } from "../data/menudata";
 
 const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
   const [clickCount, setClickCount] = useState(0);
@@ -15,6 +19,7 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
     setClickCount(clickCount + 1);
   };
 
+<<<<<<< HEAD
   const menu = [
     {
       namn: "Rödspätta",
@@ -53,6 +58,9 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
       price: 15
     }
   ];
+=======
+  
+>>>>>>> 39752419e8c45b3f27552d7dfbc1502c8a4b270e
 
   return (
     <>
