@@ -3,6 +3,7 @@ import Lammstek from '../assets/Imgs/lammstek.jpg';
 import kyckling from '../assets/Imgs/kyckling.jpg';
 import Entrecote from '../assets/Imgs/Entrecote.jpg';
 import sallad from '../assets/Imgs/sallad.jpg';
+import Drycker from '../assets/imgs/Drycker.jpg';
 
 const menu = [
     {
@@ -34,6 +35,12 @@ const menu = [
       bild: sallad,
       beskrivning: "Saftig sallad med inslag av natur. ",
       price: 105
+    },
+    {
+      namn: "Drycker",
+      bild: Drycker,
+      beskrivning: "Vatten, Fanta, Trocadero, Sprite, Coca-cola, Fanta ",
+      price: 15
     }
   ];
 
