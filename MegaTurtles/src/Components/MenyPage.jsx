@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Stylesheet/menyPage.css";
-import { menu } from "../data/menudata";
+import menu from "../data/menudata.js";
 
 const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 	const [clickCount, setClickCount] = useState(0);
@@ -36,9 +36,7 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 								price: menuItem.price,
 							})
 						}
-					>
-				
-					</button>
+					></button>
 
 					<button
 						className="plusbtn"

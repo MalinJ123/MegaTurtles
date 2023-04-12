@@ -4,6 +4,7 @@ import kyckling from '../assets/Imgs/kyckling.jpg';
 import Entrecote from '../assets/Imgs/Entrecote.jpg';
 import sallad from '../assets/Imgs/sallad.jpg';
 
+
 const menu = [
     {
       namn: "Rödspätta",
@@ -37,4 +38,4 @@ const menu = [
     }
   ];
 
-  export {menu}
+  export default menu;
