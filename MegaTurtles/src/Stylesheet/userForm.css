@@ -27,24 +27,40 @@
 	font-weight: bold;
 }
 
-.form-input:focus, .message-box:focus {
-	outline: none;
-	border: 1px solid rgba(25, 163, 20, 0.516);
+.field {
+	display: flex;
+}
+.field input {
+	flex-grow: 1 ;
+	border-width: 2px;
+
+}
+.display-error-message {
+	display: inline-block;
+	min-height: 0.8em;
+	min-width: 3em;
+	color: red;
+	margin-left: 0.5em; 
+
 }
 
+.invalid {
+	border-color: rgb(219, 36, 36);
+}
+.valid {
+	border-color: rgb(76, 199, 76); 
+}
 
-.form-input {
+input {
 	width: 100%; 
 	padding: 0.5em; 
 	border-radius: 0.5em;
-	border: 1px solid rgb(165, 181, 165); 
 	margin: 0.3em; 
 }
 
 .message-box {
 	width: 100%; 
-	padding: 0.5em; 
-	border: 1px solid  rgb(165, 181, 165); 
+	padding: 0.5em;  
 	resize: none;
 	margin: 0.3em; 
 }
