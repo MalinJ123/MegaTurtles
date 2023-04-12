@@ -21,6 +21,8 @@ footer {
   padding-left: 0.5em;
 }
 
+
+
 .admin-login-text {
   cursor: pointer;
   font-size: 18px;
@@ -28,6 +30,10 @@ footer {
   grid-column: 3;
   grid-row: 1;
   text-align: right;
+}
+
+.admin-login-text:hover {
+  color:#6CA695;
 }
 
 .social-icons-container {

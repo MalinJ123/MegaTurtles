@@ -29,7 +29,7 @@ const Header = () => {
 		<header>
 
 			<img className='header-logo' src={headerLogo} alt="Logo"/>
-			{/* <div className='main-container-menu'> */}
+			
 
 				<div className='menu-bar-container-wideScreen'>
 					<h2 className='menu-bar'>Meny</h2>
@@ -46,7 +46,7 @@ const Header = () => {
 				
 				</div>
 
-			{/* </div> */}
+
 		</header>
 	)
 
