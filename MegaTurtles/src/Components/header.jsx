@@ -44,10 +44,6 @@ const Header =  ({ cartItems, setCartItems }) => {
 		}
 	};
 
-	// const hamburgerIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className='hamburger-menu' icon= {faBars} />
-
-	// const closeIcon = <FontAwesomeIcon onClick={showHamburgerMenu} className= 'close-icon' icon={faXmark} />
-
 	return (
 		<header>
 			<img className='header-logo' src={headerLogo} alt='Logo' />
@@ -72,17 +68,22 @@ const Header =  ({ cartItems, setCartItems }) => {
 					{showShoppingCart && (
 						<div className='CartOverlay'>
 						<div className="Cart-list">
-							{cartItems.length > 0 ? (
-							cartItems.map((item, index) => (
-							<div className='CartItemContainer' key={index}>
-								<p className ="CartItem-name">{item.name} 	</p>
-								<p className="CartItem-price">{item.price} kr </p>
-								<button onClick={() => removeItem(item)}> - </button>										
-    					</div>
-					 ))) : ( <p className="emptyOverlay"> Din varukorg är tom </p>)}	
-					
+ 							 {cartItems.length > 0 ? (
+  						  <div>
+							<h4 className="FullOverlay">Din varukorg</h4>
+							{cartItems.map((item, index) => (
+								<div className="CartItemContainer" key={index}>
+								<p className="CartItem-name">{item.name}</p>
+								<p className="CartItem-price">{item.price} kr</p>
+								<button onClick={() => removeItem(item)}> - </button>
+       					 </div>
+						))}
+						</div>
+					) : (
+						<h4 className="emptyOverlay">Din varukorg är tom</h4>
+					)}
 					</div>
-					<div className="TotalPrice-container">
+						<div className="TotalPrice-container">
 						<div className='total'>
 						<p className='total-price'>Total: {totalPrice} kr</p>
 						<button className="CartOverlay-Btn" onClick={() => toggleOverlay('cart')}>Betalning</button>

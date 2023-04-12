@@ -4,6 +4,7 @@ import Lammstek from '../assets/Imgs/lammstek.jpg';
 import kyckling from '../assets/Imgs/kyckling.jpg';
 import Entrecote from '../assets/Imgs/Entrecote.jpg';
 import sallad from '../assets/Imgs/sallad.jpg';
+import Drycker from '../assets/imgs/Drycker.jpg'
 import '../Stylesheet/menyPage.css';
 
 const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
@@ -44,6 +45,12 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
       bild: sallad,
       beskrivning: "Saftig sallad med inslag av natur. ",
       price: 105
+    },
+    {
+      namn: "Drycker",
+      bild: Drycker,
+      beskrivning: "Vatten, Zingo, Trocadero, Sprite, Coca Cola, Fanta ",
+      price: 15
     }
   ];
 
