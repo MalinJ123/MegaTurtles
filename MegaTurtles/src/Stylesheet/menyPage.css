@@ -57,6 +57,10 @@
 	visibility: visible;
   }
 
+  /* .Line{
+	border: none;
+  } */
+
   @media screen and (min-width: 740px) {
 	.menuH3{
 		font-size: 3em;

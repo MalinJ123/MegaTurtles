@@ -31,7 +31,7 @@ function App() {
     
      <ContentMain/> 
      <UserForm /> 
-    <AdminPage/>
+    {/* <AdminPage/> */}
     <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} /> 
     <Footer />
     </div>

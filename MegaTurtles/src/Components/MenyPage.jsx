@@ -17,7 +17,7 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 			</div>
 			{menu.map((menuItem, index) => (
 				<section className="menuSection" key={index}>
-					<p>______________________________</p>
+					<p className="Line">______________________________</p>
 					<h3 className="menu-item-title">{menuItem.namn}</h3>
 					<img
 						className="menu-pic"
