@@ -20,8 +20,7 @@ function App() {
     <Header/>
      <ContentMain />
      <UserForm />
-
-     {/* <MenyPage/>  */}
+     <MenyPage/>
     <Footer />
     </div>
   )

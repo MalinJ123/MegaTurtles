@@ -51,6 +51,7 @@
 
 /*Knappen i formuläret*/
 .form-button { 
+	background-color: #6CA695;
 	padding: 0.8em; 
 	width: 100px; 
 	border: 1px solid rgb(165, 181, 165); 
@@ -59,7 +60,8 @@
 }
 
 .form-button:hover {
-	background-color: #6CA695;
+	background-color: grey;
+	color: white;
 	cursor: pointer;
 }
 
