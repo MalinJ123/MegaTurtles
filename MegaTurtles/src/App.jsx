@@ -9,7 +9,7 @@ import "./footer.css";
 import Header from "./Components/header.jsx";
 import "./header.css";
 import "../src/Stylesheet/mermat.css";
-import AdminPage from "./Components/mermat";
+import AdminPage from "./Components/AdminPage";
 import AdminLogin from "./Components/adminlogin";
 import "../src/Stylesheet/adminlogin.css";
 import UserForm from "./Components/Userform";
