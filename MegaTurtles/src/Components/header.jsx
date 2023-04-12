@@ -55,6 +55,8 @@ const Header =  ({ cartItems, setCartItems }) => {
 					Kontakt
 				</h2>
 			</div>
+			<img className='header-logo' src={headerLogo} alt="Logo"/>
+			
 
 			<div className='menu-bar-container-mobile'>
 				{!showHamburgerMenu ? (<FontAwesomeIcon onClick={() => {showNav()}} className='hamburger-menu' icon= {faBars} />) : (<FontAwesomeIcon onClick={() => {showNav()}} className= 'close-icon' icon={faXmark} />)}
@@ -94,6 +96,8 @@ const Header =  ({ cartItems, setCartItems }) => {
 					)}
 				</div>
 			</div>
+
+
 		</header>
 	);
 };

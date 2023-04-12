@@ -20,6 +20,8 @@ footer {
   padding-left: 0.5em;
 }
 
+
+
 .admin-login-text {
   cursor: pointer;
   font-size: 18px;
@@ -39,6 +41,10 @@ color: #ffffff;
   align-items: center;
   flex: 1;
 }
+.admin-login-text:hover {
+  color:#6CA695;
+}
+
 .social-icons-container {
     display: flex;
     flex-direction: column;
