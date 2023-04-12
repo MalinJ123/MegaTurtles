@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 // import './mermat.css';
+import MenyPage from './MenyPage';
 
-function MyForm() {
+
+function AdminPage() {
+
+
+  
     const [dishName, setDishName] = useState('');
     const [dishDescription, setDishDescription] = useState('');
     const [dishImage, setDishImage] = useState('');
@@ -25,10 +30,21 @@ function MyForm() {
         dishDescription: dishDescription,
         dishImage: dishImage,
       });
+
+    
+   
     };
+
+
   
     return (
-      <form onSubmit={handleSubmit} className="my-form">
+      <>
+<section className="MenuPageContainer">
+<h1 className='AdminPage'>AdminPage</h1>
+
+      <section className="Admin-Form-Container">
+        <form onSubmit={handleSubmit} className="my-form">
+          <h2 className="EditMenu">Redigera Meny alternativ</h2>
         <label className="my-label">
           Maträttens namn:
           <input
@@ -55,11 +71,45 @@ function MyForm() {
             className="my-input"
           />
         </label>
-        <button type="submit" className="my-button">
-          Skicka
+        <button type="submit" className="save-btn">
+          Spara
         </button>
-      </form>
+        <button className="edit-btn">
+         Redigera
+        </button>
+        <button className="delete-btn">
+          Radera
+        </button>
+      </form></section>
+
+      <MenyPage/>
+      {/* <Menu>
+      
+        {menuItems.map((item) => (
+          <Menu.Item key={item.id}>
+            <div>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+            </div>
+            <div>
+              <button className="edit-btn" onClick={() => handleEdit(item.id)}>
+                Redigera
+              </button>
+              <button className="delete-btn" onClick={() => handleDelete(item.id)}>
+                Ta bort
+              </button>
+            </div>
+          </Menu.Item>
+        ))}
+      </Menu> */}
+
+     
+</section>
+    
+  </>
     );
+
+
   }
   
-  export default MyForm;
+  export default AdminPage;

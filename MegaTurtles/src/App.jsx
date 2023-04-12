@@ -8,8 +8,8 @@ import Footer from './Components/footer.jsx/'
 import './footer.css'
 import Header from './Components/header.jsx'
 import './header.css';
-import './mermat.css';
-import MyForm from './Components/mermat'
+import '../src/Stylesheet/mermat.css';
+import AdminPage from './Components/mermat'
 import AdminLogin from './Components/adminlogin';
 import '../src/Stylesheet/adminlogin.css'
 import UserForm from './Components/Userform'
@@ -28,10 +28,10 @@ function App() {
     <div className="App">
      
     <Header cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart}/>
-    <ContentMain/>
-    <UserForm />
-    <MyForm/>
-    <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} />
+    {/* <ContentMain/> */}
+    {/* <UserForm /> */}
+    <AdminPage/>
+    {/* <MenyPage cartItems={cartItems} setCartItems={setCartItems} addToCart={addToCart} /> */}
     <Footer />
     </div>
   );
