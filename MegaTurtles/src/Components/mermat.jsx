@@ -82,7 +82,7 @@ function AdminPage() {
         </button>
       </form></section>
 
-      <MenyPage/>
+      {/* <MenyPage/> */}
       {/* <Menu>
       
         {menuItems.map((item) => (

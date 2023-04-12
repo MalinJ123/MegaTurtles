@@ -1,6 +1,7 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import  AdminPage from './mermat' 
 
 
 const AdminLogin = (props) => {
