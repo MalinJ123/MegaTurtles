@@ -12,6 +12,9 @@ const AdminLogin = (props) => {
 	const [hasSubmitted, setHasSubmitted] = useState(false)
 	const [showAdminPage, setShowAdminPage] = useState(false) // Ska använda detta på något vis
 	const [userNameErrorMessage, setUserNameErrorMessage] = useState('')
+	const [userNameError, setUserNameError] = useState(false);
+	const [passwordError, setPasswordError] = useState(false);
+
 	const correctPassword = 'mums'
 	const correctUserName = 'admin'
 	const allowedChars = 'abcdefghijklmnopqrstuvwxyzåäö'
@@ -23,19 +26,25 @@ const AdminLogin = (props) => {
 		if (password === correctPassword && userName === correctUserName) {
 			setIsPasswordCorrect(true)
 			setIsUserNameCorrect(true)
-			setShowAdminPage(true)		// Nu vill jag skapa en funktion där jag skickas vidare till adminsidan som ska ligga i funktionen 									LoginEvent. Jag tror att jag ska börja med att skapa en statevariabel för att visa den sidan.
+			setShowAdminPage(true)		
 		} else {
 			if (password !== correctPassword) {
 				setIsPasswordCorrect(false)
-			} 
+				setPasswordError(true)
+				
+			} else {
+				setPasswordError(false)
+			}
 			if (userName !== correctUserName) {
 				setIsUserNameCorrect(false)
+				setUserNameError(true)
+			} else {
+				setUserNameError(false)
 			}
 			
 		}
-	
+		
 	}
-	
 
 
 	const handleInputChange = (event) => {
@@ -55,11 +64,14 @@ const AdminLogin = (props) => {
 				let c = input.charAt(i).toLowerCase()
 				if (!allowedChars.includes(c)) {
 					setUserNameErrorMessage("Vänligen använd bara bokstäver.");
-					
-				}
+				} 
 			}
-		}
-		return [true, '']
+		} else {
+					setUserNameErrorMessage("")
+				}
+			
+		return [true, '', setHasSubmitted(false)]
+		
 	}
 
 	const closeLogin = () => {
@@ -86,7 +98,8 @@ const AdminLogin = (props) => {
 					
 				</input>
 					{userNameErrorMessage && <p className='error-message'>{userNameErrorMessage}</p>}
-					{hasSubmitted && !isUserNameCorrect && userName !== '' && <p className='error-message'>Felaktigt användarnamn, Vänligen prova igen!</p> }
+					 {hasSubmitted && userNameError && <p className='error-message'>Felaktigt användarnamn, Vänligen prova igen!</p> } 
+					 
 
 				<label className='label-style'>Lösenord:</label>
 				<input 
@@ -97,7 +110,7 @@ const AdminLogin = (props) => {
 					onChange={handleInputChange}
 					onBlur={handleInputChange}>
 				</input>
-					{hasSubmitted && !isPasswordCorrect && password !== '' && <p className='error-message'>Felaktigt lösenord, vänligen prova igen!</p> }
+					{hasSubmitted && passwordError && <p className='error-message'>Felaktigt lösenord, vänligen prova igen!</p> }
 
 				<button 
 					className='logIn-button'
