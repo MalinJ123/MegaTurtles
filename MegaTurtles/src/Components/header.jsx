@@ -11,6 +11,7 @@ const Header = ({ cartItems, setCartItems, setView }) => {
 	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 	const [showShoppingCart, setShowShoppingCart] = useState(false);
 
+
 	function showNav() {
 		if (!showHamburgerMenu) {
 			setShowHamburgerMenu(true);
@@ -93,7 +94,7 @@ const Header = ({ cartItems, setCartItems, setView }) => {
 						icon={faXmark}
 					/>
 				)}
-				{showHamburgerMenu ? <HamburgerMenu /> : null}
+				{showHamburgerMenu ? <HamburgerMenu setView={setView} /> : null}
 				<FontAwesomeIcon
 					className="shopping-cart"
 					onClick={() => toggleOverlay("cart")}

@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-// import './AdminPage.css';
+import React, { useEffect, useState } from "react";
+import "../Stylesheet/AdminPage.css";
 import MenyPage from "./MenyPage";
 import menu from "../data/menudata.js";
 
-function AdminPage() {
+function AdminPage({setShowAdminPage}) {
 	const [dishName, setDishName] = useState("");
 	const [dishDescription, setDishDescription] = useState("");
 	const [dishImage, setDishImage] = useState("");
-
+	const [importedMenu, setImportedMenu] = useState([]);
+	
+	useEffect(() => {
+		setImportedMenu(menu);
+	}, []);
 	const handleDishNameChange = (event) => {
 		setDishName(event.target.value);
 	};
@@ -28,10 +32,19 @@ function AdminPage() {
 			dishImage: dishImage,
 		});
 	};
+	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
+	const handleDelete = (itemToDelete) => {
+		const updatedItems = importedMenu.filter(
+			(item) => item !== itemToDelete
+		);
+		setImportedMenu(updatedItems);
+	};
+
 	return (
 		<>
 			<section className="Admin-Form-Container">
 				<h1 className="AdminPage">AdminPage</h1>
+				<button onClick={() => {setShowAdminPage(false)}}>Logga ut</button>
 				<form onSubmit={handleSubmit} className="my-form">
 					<h2 className="EditMenu">Redigera Meny alternativ</h2>
 					<label className="my-label">
@@ -68,28 +81,38 @@ function AdminPage() {
 				</form>
 			</section>
 			<section className="MenuPageContainer">
-				{menu.map((item,index ) => (
-						<div key={index}>
-					<div>
-							<h3>{item.name}</h3>
-							<p>{item.description}</p>
+				{importedMenu &&
+					importedMenu.map((item, index) => (
+						<div className="MenuItem" key={index}>
+							<h3>{item.namn}</h3>
+							<figure
+								style={{
+									width: "200px",
+									height: "200px",
+									backgroundImage: `url(../..${item.bild})`,
+									backgroundPosition: "center",
+									backgroundSize: "cover",
+								}}
+							/>
+							<div>
+								<p>{item.beskrivning}</p>
+							</div>
+							<div>
+								<button
+									className="edit-btn"
+									onClick={() => handleEdit(item.namn)}
+								>
+									Redigera
+								</button>
+								<button
+									className="delete-btn"
+									onClick={() => handleDelete(item)}
+								>
+									Ta bort
+								</button>
+							</div>
 						</div>
-						<div>
-							<button
-								className="edit-btn"
-								onClick={() => handleEdit(item.namn)}
-							>
-								Redigera
-							</button>
-							<button
-								className="delete-btn"
-								onClick={() => handleDelete(item.namn)}
-							>
-								Ta bort
-							</button>
-						</div>
-					</div>
-				))}
+					))}
 			</section>
 		</>
 	);
