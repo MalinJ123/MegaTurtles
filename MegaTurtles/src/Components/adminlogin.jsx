@@ -110,21 +110,6 @@ const AdminLogin = (props) => {
 				</input>
 					{hasSubmitted && passwordError && <p className='error-message'>Felaktigt lösenord, vänligen prova igen!</p> }
 
-					<label className="label-style">Lösenord:</label>
-					<input
-						className="input"
-						type="password"
-						placeholder="Lösenord"
-						value={password}
-						onChange={handleInputChange}
-						onBlur={handleInputChange}
-					></input>
-					{hasSubmitted && !isPasswordCorrect && password !== "" && (
-						<p className="error-message">
-							Felaktigt lösenord, vänligen prova igen!
-						</p>
-					)}
-
 					<button
 						className="logIn-button"
 						type="submit"
