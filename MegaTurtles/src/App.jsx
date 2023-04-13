@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import ContentMain from "./Components/content";
-import "./ContentMain.css";
+import "./Stylesheet/ContentMain.css"
 import MenyPage from "./Components/MenyPage";
 import "./Stylesheet/menyPage.css";
 import Footer from "./Components/footer.jsx/";
