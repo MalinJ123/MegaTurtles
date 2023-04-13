@@ -11,6 +11,7 @@ function UserForm() {
 	const [telIsDirty, setTelIsDirty] = useState(false); 
 	const [message, setMessage] = useState('')
 	const [messageIsDirty, setMessageIsDirty] = useState(false);
+	//const [hasTyped, setHasTyped] = useState=(false); 
 
 //required - Glöm ej det
 
@@ -46,7 +47,7 @@ const handleSubmit = event => {
 
 	return (
 	<section className="contact">
-		<form className="user-form">
+		<form className="user-form" onSubmit={handleSubmit}>
 				<p className="user-form-header">Har du ideér till en ny rätt eller vill fråga oss om något? Vänligen skriv till oss så kanske vi uppdaterar våran meny med just DIN mat</p>
 
 				<div className="field-group">
@@ -74,7 +75,7 @@ const handleSubmit = event => {
 							onBlur={() => setTelIsDirty(true)}/>
 							<span>{telIsDirty ? (telIsvalid ? '✔️' : '❌') : '' }</span>
 						</div>
-						<span className="display-error-phone- message">{telIsDirty ? teleErrorMessage : '' }</span>
+						<span className="display-error-phone-message">{telIsDirty ? teleErrorMessage : '' }</span>
 				</div>	 
 
 				<div className="field-group">
@@ -89,7 +90,7 @@ const handleSubmit = event => {
 						<span className="display-error-text-message">{messageIsDirty ? textErrorMessage : '' }</span>
 				</div>
 			
-				<button className="form-button" type="submit" onClick={handleSubmit}>Skicka in!</button>
+				<button className="form-button" type="submit">Skicka in!</button>
 		</form>
 		<div>
 			<img className="contactUs" src={contactUs} />
