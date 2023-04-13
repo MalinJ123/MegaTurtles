@@ -1,6 +1,11 @@
+// import React from 'react';
+// import { useState } from 'react';
+// import bord from '../assets/imgs/middagsbord.jpg';
+// import './ContentMain.css';
+
 import { useState } from "react"
 import bord from '../assets/imgs/middagsbord.jpg'
-import './ContentMain.css'
+import '../Stylesheet/ContentMain.css'
 
 const ContentMain = () => {
 
@@ -8,10 +13,10 @@ const ContentMain = () => {
 		<main>
 			
 		<div className="main-container">
-			<img className="glasbord" src={bord} />
-				<div className="main-text">
+			<div className="main-text">
 					<h2>Är du på jakt efter en riktig bra restaurang som erbjuder den bästa servicen och smakupplevelsen? <br/> Då har du kommit rätt! </h2>
-				</div>
+			</div>
+			<img className="glasbord" src={bord} />
 				<div className="text-container">
 					<div className="main-para-container">
 						<p className="main-para">Middagshörnan är det perfekta valet om du är ute efter god mat och ett brett utbud av drycker och matalternativ till fantastiskt bra priser.  </p>
