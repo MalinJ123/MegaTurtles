@@ -44,6 +44,24 @@
 
 }
 
+.display-error-phone-message {
+	display: inline-block;
+	min-height: 0.8em;
+	min-width: 3em;
+	color: red;
+	margin-left: 0.5em; 
+	margin-bottom: 0.5em; 
+}
+
+.display-error-text-message {
+	display: inline-block;
+	min-height: 0.8em;
+	min-width: 3em;
+	color: red;
+	margin-left: 0.5em; 
+	margin-bottom: 0.5em; 
+}
+
 .invalid {
 	border-color: rgb(219, 36, 36);
 }
