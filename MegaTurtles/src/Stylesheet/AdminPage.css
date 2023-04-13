@@ -1,3 +1,14 @@
+.MenuPageContainer{
+  display:flex;
+  flex-direction: column;
+ 
+}
+.MenuItem{
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top:3em;
+}
 
 .AdminPage{
 	font-size: 2em;

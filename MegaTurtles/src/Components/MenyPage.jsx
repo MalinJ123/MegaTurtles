@@ -36,7 +36,7 @@ const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
 								price: menuItem.price,
 							})
 						}
-					></button>
+					>+</button>
 
 					<button
 						className="plusbtn"

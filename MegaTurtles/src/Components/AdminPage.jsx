@@ -83,7 +83,8 @@ function AdminPage({setShowAdminPage}) {
 			<section className="MenuPageContainer">
 				{importedMenu &&
 					importedMenu.map((item, index) => (
-						<div key={index}>
+						<div className="MenuItem" key={index}>
+							<h3>{item.namn}</h3>
 							<figure
 								style={{
 									width: "200px",
@@ -94,7 +95,6 @@ function AdminPage({setShowAdminPage}) {
 								}}
 							/>
 							<div>
-								<h3>{item.namn}</h3>
 								<p>{item.beskrivning}</p>
 							</div>
 							<div>
