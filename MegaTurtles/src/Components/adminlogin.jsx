@@ -1,12 +1,12 @@
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
-
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import AdminPage from "./AdminPage";
 
 const AdminLogin = (props) => {
-	const [close, setClose] = useState(false)
-	const [password, setPassword] = useState('')
-	const [userName, setUserName] = useState('')
+	const [close, setClose] = useState(false);
+	const [password, setPassword] = useState("");
+	const [userName, setUserName] = useState("");
 	const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
 	const [isUserNameCorrect, setIsUserNameCorrect] = useState(false);
 	const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -19,14 +19,15 @@ const AdminLogin = (props) => {
 	const correctUserName = 'admin'
 	const allowedChars = 'abcdefghijklmnopqrstuvwxyzåäö'
 
-	const LoginEvents = (event)=> {
-		event.preventDefault()
-		setHasSubmitted(true)
+	const LoginEvents = (event) => {
+		event.preventDefault();
+		setHasSubmitted(true);
 
 		if (password === correctPassword && userName === correctUserName) {
 			setIsPasswordCorrect(true)
 			setIsUserNameCorrect(true)
-			setShowAdminPage(true)		
+			setShowAdminPage(true)
+			setClose(!close);		
 		} else {
 			if (password !== correctPassword) {
 				setIsPasswordCorrect(false)
@@ -41,27 +42,25 @@ const AdminLogin = (props) => {
 			} else {
 				setUserNameError(false)
 			}
-			
 		}
 		
 	}
 
 
 	const handleInputChange = (event) => {
-		setPassword(event.target.value)
+		setPassword(event.target.value);
 		if (hasSubmitted) {
-			setIsPasswordCorrect(event.target.value === correctPassword)
-
-		} 
-	}
+			setIsPasswordCorrect(event.target.value === correctPassword);
+		}
+	};
 
 	const inputChange = (event) => {
 		const input = event.target.value;
-		setUserName(input)
+		setUserName(input);
 		if (hasSubmitted) {
-			setIsUserNameCorrect(input === correctUserName)
+			setIsUserNameCorrect(input === correctUserName);
 			for (let i = 0; i < input.length; i++) {
-				let c = input.charAt(i).toLowerCase()
+				let c = input.charAt(i).toLowerCase();
 				if (!allowedChars.includes(c)) {
 					setUserNameErrorMessage("Vänligen använd bara bokstäver.");
 				} 
@@ -75,11 +74,10 @@ const AdminLogin = (props) => {
 	}
 
 	const closeLogin = () => {
-		setClose(!close)
+		setClose(!close);
 		props.onClose();
-	} 
+	};
 
-	
 	return (
 		<section className="overlay" style={{ display: close ? 'none' : 'fixed' }}>
 			{showAdminPage ? (<AdminPage />) : (
@@ -112,18 +110,33 @@ const AdminLogin = (props) => {
 				</input>
 					{hasSubmitted && passwordError && <p className='error-message'>Felaktigt lösenord, vänligen prova igen!</p> }
 
-				<button 
-					className='logIn-button'
-					type="submit" 
-					onClick={LoginEvents}> Logga in
-				</button>
+					<label className="label-style">Lösenord:</label>
+					<input
+						className="input"
+						type="password"
+						placeholder="Lösenord"
+						value={password}
+						onChange={handleInputChange}
+						onBlur={handleInputChange}
+					></input>
+					{hasSubmitted && !isPasswordCorrect && password !== "" && (
+						<p className="error-message">
+							Felaktigt lösenord, vänligen prova igen!
+						</p>
+					)}
 
-			</form>
-
+					<button
+						className="logIn-button"
+						type="submit"
+						onClick={LoginEvents}
+					>
+						{" "}
+						Logga in
+					</button>
+				</form>
 			)}
-			
 		</section>
-	)
-}
+	);
+};
 
-export default AdminLogin
+export default AdminLogin;

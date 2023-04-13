@@ -1,6 +1,11 @@
+// import React from 'react';
+// import { useState } from 'react';
+// import bord from '../assets/imgs/middagsbord.jpg';
+// import './ContentMain.css';
+
 import { useState } from "react"
 import bord from '../assets/imgs/middagsbord.jpg'
-import './ContentMain.css'
+import '../ContentMain.css'
 
 const ContentMain = () => {
 
@@ -23,7 +28,6 @@ const ContentMain = () => {
 						<p className="main-para">Du som gäst får även tycka till om vad du tycker om vår mat och ifall du har egna ideér på nya rätter, tveka inte att höra av dig till oss.</p>
 					</div>	
 				</div>
-				
 		</div>
 	</main>
 	)

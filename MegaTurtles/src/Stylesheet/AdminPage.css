@@ -1,0 +1,77 @@
+
+.AdminPage{
+	font-size: 2em;
+	margin: 0.7em 0 0.2em 0; 
+  display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.Admin-Form-Container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.my-form {
+    margin: 0 auto;
+    background-color: #f0f8db;
+    /* background-color: rgb(208, 220, 214); */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    max-width: 350px;
+	  width: 70%; 
+    box-shadow: rgba(34, 37, 36, 0.35) 10px 10px 10px 0px;
+  }
+  .EditMenu{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+  }
+  
+  .my-label {
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .my-input,
+  .my-textarea {
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-size: 14px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  .my-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .save-btn,
+  .edit-btn,
+  .delete-btn {
+    font-family: Arial, sans-serif;
+    background-color: #6CA695;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 3px;
+    border-radius: 11px;
+  }
+  
+  .save-btn:hover,
+  .edit-btn:hover,
+  .delete-btn:hover{
+    /* background-color: #CAEFDD; */
+    /* background-color: #6CA695; */
+    background-color: #9dd9c7;
+  }
+
