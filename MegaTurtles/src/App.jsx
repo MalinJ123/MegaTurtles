@@ -8,9 +8,7 @@ import Footer from "./Components/footer.jsx/";
 import "./footer.css";
 import Header from "./Components/header.jsx";
 import "./header.css";
-
 import AdminPage from "./Components/AdminPage";
-import AdminLogin from "./Components/adminlogin";
 import "../src/Stylesheet/adminlogin.css";
 import UserForm from "./Components/Userform";
 import "./Stylesheet/userForm.css";
@@ -18,6 +16,7 @@ import "./Stylesheet/userForm.css";
 function App() {
 	const [cartItems, setCartItems] = useState([]);
 	const [view, setView] = useState("CONTENT");
+	const [showAdminPage, setShowAdminPage] = useState(true);
 	const addToCart = (item) => {
 		setCartItems([...cartItems, item]);
 	};
@@ -30,24 +29,28 @@ function App() {
 				addToCart={addToCart}
 				setView={setView}
 			/>
-			{view === "CONTENT" ? (
+			{showAdminPage ? (
+				<AdminPage />
+			) : (
 				<>
-					{" "}
-					<ContentMain />
-					<UserForm />
+					{view === "CONTENT" ? (
+						<>
+							{" "}
+							<ContentMain />
+							<UserForm />
+						</>
+					) : null}
+					{view === "MENU" ? (
+						<MenyPage
+							cartItems={cartItems}
+							setCartItems={setCartItems}
+							addToCart={addToCart}
+						/>
+					) : null}
 				</>
-			) : null}
-			{view === "MENU" ? (
-				<MenyPage
-					cartItems={cartItems}
-					setCartItems={setCartItems}
-					addToCart={addToCart}
-				/>
-			) : null}
+			)}
 
-			{/* <AdminPage/> */}
-
-			<Footer />
+			<Footer setShowAdminPage={setShowAdminPage} />
 		</div>
 	);
 }
