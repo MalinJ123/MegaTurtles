@@ -4,7 +4,6 @@ import { useState } from "react";
 import AdminPage from "./AdminPage";
 
 const AdminLogin = (props) => {
-	const [close, setClose] = useState(false);
 	const [password, setPassword] = useState("");
 	const [userName, setUserName] = useState("");
 	const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
@@ -25,8 +24,8 @@ const AdminLogin = (props) => {
 			console.log("HEEEEEEJ");
 			setIsPasswordCorrect(true);
 			setIsUserNameCorrect(true);
-			setClose(true);  // stänger login overlayen 
 			props.setShowAdminPage(true);
+			closeLogin();
 			
 		} else {
 			if (password !== correctPassword) {
@@ -61,14 +60,14 @@ const AdminLogin = (props) => {
 	};
 
 	const closeLogin = () => {
-		setClose(!close);
+
 		props.onClose();
 
 	};
 
 	
 return (
-	<section className="overlay" style={{ display: close ? "none" : "fixed" }}>
+	<section className="overlay" style={{ display: "fixed" }}>
 	
 		<form className="form-container">
 		  <FontAwesomeIcon
