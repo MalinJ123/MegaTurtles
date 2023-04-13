@@ -1,38 +1,38 @@
 .hamburger-menu, .close-icon {
-	cursor: pointer;
-	position: absolute;
-	margin: 0 0.5em 0 0em;
-	right: 1.2em;
-	top: em;
+    cursor: pointer;
+    position: absolute;
+    margin: 0 0.5em 0 0em;
+    right: 1.2em;
+    top: em;
 }
 
 .menu-bar-container-mobile {
-	position: relative;
+    position: relative;
 }
 
 .close-icon {
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .links-hamburger-menu li {
-	list-style: none;
-	padding-bottom: 2em;
+    list-style: none;
+    padding-bottom: 2em;
 }
 
 .nav-hamburger-menu {
-	background-color: #080808db;
-	color: white;
-	position: absolute;
-	top: 2em;
-	right: 0em;
-	/* height: 10em; */
-	padding: 0;
+    background-color: #080808db;
+    color: white;
+    position: absolute;
+    top: 2em;
+    right: 0em;
+     height: 10em; 
+    padding: 0;
 }
 
-.nav-hamburger-menu * {
-	padding: 1em;
+.nav-hamburger-menu {
+    padding: 1em;
 }
 
 .fa-regular{
-	color: rgb(201, 24, 24); 
+    color: rgb(201, 24, 24); 
 }
