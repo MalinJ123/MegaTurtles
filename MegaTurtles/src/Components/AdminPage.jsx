@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import './AdminPage.css';
+import React, { useEffect, useState } from "react";
+import "../Stylesheet/AdminPage.css";
 import MenyPage from "./MenyPage";
 import menu from "../data/menudata.js";
 
@@ -7,7 +7,12 @@ function AdminPage() {
 	const [dishName, setDishName] = useState("");
 	const [dishDescription, setDishDescription] = useState("");
 	const [dishImage, setDishImage] = useState("");
+	const [importedMenu, setImportedMenu] = useState([]);
+	const [deleteBtn, setDeleteBtn] = useState([]);
 
+	useEffect(() => {
+		setImportedMenu(menu);
+	}, []);
 	const handleDishNameChange = (event) => {
 		setDishName(event.target.value);
 	};
@@ -28,6 +33,13 @@ function AdminPage() {
 			dishImage: dishImage,
 		});
 	};
+	const handleDelete = (itemToDelete) => {
+		const updatedItems = importedMenu.filter(
+			(item) => item !== itemToDelete
+		);
+		setImportedMenu(updatedItems);
+	};
+
 	return (
 		<>
 			<section className="Admin-Form-Container">
@@ -68,28 +80,38 @@ function AdminPage() {
 				</form>
 			</section>
 			<section className="MenuPageContainer">
-				{menu.map((item,index ) => (
+				{importedMenu &&
+					importedMenu.map((item, index) => (
 						<div key={index}>
-					<div>
-							<h3>{item.name}</h3>
-							<p>{item.description}</p>
+							<figure
+								style={{
+									width: "200px",
+									height: "200px",
+									backgroundImage: `url(../..${item.bild})`,
+									backgroundPosition: "center",
+									backgroundSize: "cover",
+								}}
+							/>
+							<div>
+								<h3>{item.namn}</h3>
+								<p>{item.beskrivning}</p>
+							</div>
+							<div>
+								<button
+									className="edit-btn"
+									onClick={() => handleEdit(item.namn)}
+								>
+									Redigera
+								</button>
+								<button
+									className="delete-btn"
+									onClick={() => handleDelete(item)}
+								>
+									Ta bort
+								</button>
+							</div>
 						</div>
-						<div>
-							<button
-								className="edit-btn"
-								onClick={() => handleEdit(item.namn)}
-							>
-								Redigera
-							</button>
-							<button
-								className="delete-btn"
-								onClick={() => handleDelete(item.namn)}
-							>
-								Ta bort
-							</button>
-						</div>
-					</div>
-				))}
+					))}
 			</section>
 		</>
 	);

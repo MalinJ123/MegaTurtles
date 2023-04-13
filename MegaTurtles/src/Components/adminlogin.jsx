@@ -25,7 +25,7 @@ const AdminLogin = (props) => {
 			setIsUserNameCorrect(true);
 			setShowAdminPage(true); // Nu vill jag skapa en funktion där jag skickas vidare till adminsidan som ska ligga i funktionen 									LoginEvent. Jag tror att jag ska börja med att skapa en statevariabel för att visa den sidan.
 			setClose(true);
-
+			props.setShowAdminPage(true);
 		} else {
 			if (password !== correctPassword) {
 				setIsPasswordCorrect(false);
