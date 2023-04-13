@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import ContentMain from "./Components/content";
 import "./ContentMain.css";
@@ -16,10 +16,20 @@ import "./Stylesheet/userForm.css";
 function App() {
 	const [cartItems, setCartItems] = useState([]);
 	const [view, setView] = useState("CONTENT");
-	const [showAdminPage, setShowAdminPage] = useState(true);
+	const [showAdminPage, setShowAdminPage] = useState(false);
+	//Alternativt här den skall vara "useState(false)"";, då värdet är false i adminLogin som standard och om lösen är validerat blir true och då skall AdminPage visas. 
 	const addToCart = (item) => {
 		setCartItems([...cartItems, item]);
 	};
+
+	useEffect(() => {
+		if (showAdminPage === true) {
+		 setView("ADMIN")
+		}
+		else {
+			setView("CONTENT")
+		}
+	  }, [showAdminPage]);
 
 	return (
 		<div className="App">
@@ -29,8 +39,8 @@ function App() {
 				addToCart={addToCart}
 				setView={setView}
 			/>
-			{showAdminPage ? (
-				<AdminPage />
+			{view === "ADMIN" ? (
+				<AdminPage setShowAdminPage={setShowAdminPage}/>
 			) : (
 				<>
 					{view === "CONTENT" ? (
@@ -50,7 +60,7 @@ function App() {
 				</>
 			)}
 
-			<Footer setShowAdminPage={setShowAdminPage} />
+			<Footer setShowAdminPage={setShowAdminPage}  />
 		</div>
 	);
 }

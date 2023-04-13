@@ -17,6 +17,8 @@ const Footer = ({ setShowAdminPage }) => {
 	}, []);
 
 	console.log("open:", open);
+	
+	// console.log("close:", close); 
 
 	return (
 		<>

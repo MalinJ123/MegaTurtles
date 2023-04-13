@@ -3,13 +3,12 @@ import "../Stylesheet/AdminPage.css";
 import MenyPage from "./MenyPage";
 import menu from "../data/menudata.js";
 
-function AdminPage() {
+function AdminPage({setShowAdminPage}) {
 	const [dishName, setDishName] = useState("");
 	const [dishDescription, setDishDescription] = useState("");
 	const [dishImage, setDishImage] = useState("");
 	const [importedMenu, setImportedMenu] = useState([]);
-	const [deleteBtn, setDeleteBtn] = useState([]);
-
+	
 	useEffect(() => {
 		setImportedMenu(menu);
 	}, []);
@@ -33,6 +32,7 @@ function AdminPage() {
 			dishImage: dishImage,
 		});
 	};
+	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
 	const handleDelete = (itemToDelete) => {
 		const updatedItems = importedMenu.filter(
 			(item) => item !== itemToDelete
@@ -44,6 +44,7 @@ function AdminPage() {
 		<>
 			<section className="Admin-Form-Container">
 				<h1 className="AdminPage">AdminPage</h1>
+				<button onClick={() => {setShowAdminPage(false)}}>Logga ut</button>
 				<form onSubmit={handleSubmit} className="my-form">
 					<h2 className="EditMenu">Redigera Meny alternativ</h2>
 					<label className="my-label">
