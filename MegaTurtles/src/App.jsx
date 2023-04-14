@@ -5,9 +5,9 @@ import "./Stylesheet/ContentMain.css"
 import MenyPage from "./Components/MenyPage";
 import "./Stylesheet/menyPage.css";
 import Footer from "./Components/footer.jsx/";
-import "./footer.css";
+import "./Stylesheet/footer.css";
 import Header from "./Components/header.jsx";
-import "./header.css";
+import "./Stylesheet/header.css";
 import AdminPage from "./Components/AdminPage";
 import "../src/Stylesheet/adminlogin.css";
 import UserForm from "./Components/Userform";
