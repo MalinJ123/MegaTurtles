@@ -27,39 +27,87 @@
 	font-weight: bold;
 }
 
-.form-input:focus, .message-box:focus {
-	outline: none;
-	border: 1px solid rgba(25, 163, 20, 0.516);
+.field {
+	display: flex;
+}
+.field input {
+	flex-grow: 1 ;
+	border-width: 2px;
+
+}
+.display-error-message {
+	font-size:13px;
+	display: inline-block;
+	min-height: 0.9em;
+	min-width: 3em;
+	color: red;
+	margin-left: 0.5em; 
+	padding: 0.3em 0; 
+
 }
 
+.display-error-phone-message {
+	font-size: 13px;
+	display: inline-block;
+	min-height: 1em;
+	min-width: 3em;
+	color: red;
+	margin-left: 0.7em; 
+	margin-bottom: 0.5em; 
+}
 
-.form-input {
+.display-error-text-message {
+	font-size: 14px; 
+	display: inline-block;
+	min-height: 0.9em;
+	min-width: 3em;
+	color: red;
+	margin-left: 0.7em; 
+	margin-bottom: 0.5em; 
+}
+
+.invalid {
+	border-color: rgb(219, 36, 36);
+}
+.valid {
+	border-color: rgb(76, 199, 76); 
+}
+
+.submit-meddelande {
+	font-style: italic;
+	font-size: 15px;
+	margin: 1em; 
+	font-weight: bold;
+}
+
+input {
 	width: 100%; 
 	padding: 0.5em; 
 	border-radius: 0.5em;
-	border: 1px solid rgb(165, 181, 165); 
 	margin: 0.3em; 
 }
 
 .message-box {
 	width: 100%; 
-	padding: 0.5em; 
-	border: 1px solid  rgb(165, 181, 165); 
+	padding: 0.5em;  
 	resize: none;
 	margin: 0.3em; 
 }
 
 /*Knappen i formuläret*/
 .form-button { 
+	background-color: #6CA695;
 	padding: 0.8em; 
 	width: 100px; 
-	border: 1px solid rgb(165, 181, 165); 
+	border: 1px solid  #6CA695;
 	border-radius: 1em; 
 	font-weight: bold;
+	color: white;
 }
 
 .form-button:hover {
-	background-color: #6CA695;
+	background-color: #9dd9c7;
+	color: black;
 	cursor: pointer;
 }
 
