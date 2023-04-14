@@ -17,6 +17,15 @@
 .links-hamburger-menu li {
     list-style: none;
     padding-bottom: 2em;
+    cursor: pointer;
+}
+
+.links-hamburger-menu li:hover {
+    color: #6CA695;
+}
+
+.links-hamburger-menu {
+    padding: 0;
 }
 
 .nav-hamburger-menu {
