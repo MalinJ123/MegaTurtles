@@ -2,36 +2,95 @@ import React, { useEffect, useState } from "react";
 import "../Stylesheet/AdminPage.css";
 import MenyPage from "./MenyPage";
 import menu from "../data/menudata.js";
+import { isValidFoodName, isValidFoodDescription, isValidUrl } from "../utils/validatorAdminForm";
 
 function AdminPage({setShowAdminPage}) {
 	const [dishName, setDishName] = useState("");
 	const [dishDescription, setDishDescription] = useState("");
 	const [dishImage, setDishImage] = useState("");
 	const [importedMenu, setImportedMenu] = useState([]);
+
+	//Dirtymeddelande 
+	const [dishNameIsDirty, setDishNameIsDirty] = useState(false);
+	const [textFoodIsDirty, setTextFoodIsDirty] = useState(false);
+	const [urlIsDirty, setUrlIsDirty] = useState(false); 
+
+	//Funktion från validatorAdminForm och skapade nya varibaler 
+	const [nameFoodIsValid, nameFoodErrorMessage ]= isValidFoodName(dishName)
+	const [textFoodIsvalid, textFoodErrorMessage] = isValidFoodDescription(dishDescription)
+	const [urlIsValid, urlErrorMessage] = isValidUrl(dishImage)
+
+
+	//Tömmer inputfält när du suddar ut 
+	const [isDishNameEmpty, setDishNameEmpty] = useState(false);
+	const [isTextFoodEmpty, setTextFoodEmpty] = useState(false);
+	const [isUrlEmpty, setUrlEmpty] = useState(false);  
+
 	
 	useEffect(() => {
 		setImportedMenu(menu);
 	}, []);
+
 	const handleDishNameChange = (event) => {
 		setDishName(event.target.value);
+		setDishNameIsDirty(true);
 	};
-
+	const resetDishNameError = () => {
+		setDishNameIsDirty(false);
+	}
+	//textarea
 	const handleDishDescriptionChange = (event) => {
+		let input = event.target.value;
+		setTextFoodIsDirty(true);
+		console.log(event.target.value)
+		if(input.length > 100 || input.length < 10 ) {
+			setTextFoodIsDirty(true); 
+			console.log(input.length)
+		}else {
+			setTextFoodIsDirty(false); 
+		}
 		setDishDescription(event.target.value);
 	};
+	//textarea
+	const resetTextFoodError = () => {
+		setTextFoodIsDirty(false); 
+	}
 
 	const handleDishImageChange = (event) => {
 		setDishImage(event.target.value);
+		setUrlIsDirty(true);
 	};
+	const resetUrlError = () => {
+		setUrlIsDirty(false);
+	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log("Formulärdata:", {
-			dishName: dishName,
-			dishDescription: dishDescription,
-			dishImage: dishImage,
-		});
+		if(dishName.trim() === '') {
+			setDishNameEmpty(true); 
+			return; 
+		}if (dishDescription.trim() === '') {
+			setTextFoodEmpty(true); 
+			return;
+		}if(dishImage.trim() === '') {
+			setUrlEmpty(true); 
+			return; 
+		}
+		// console.log("Formulärdata:", {
+		// 	dishName: dishName,
+		// 	dishDescription: dishDescription,
+		// 	dishImage: dishImage,
+		// });
 	};
+
+	//rensar fälten när man trycker på knappen
+	// setDishName(''); 
+	// setDishDescription('');
+	// setDishImage('');
+	// setDishNameIsDirty(false);
+	// setTextFoodIsDirty(false);
+	// setUrlIsDirty(false); 
+
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
 	const handleDelete = (itemToDelete) => {
 		const updatedItems = importedMenu.filter(
@@ -54,15 +113,23 @@ function AdminPage({setShowAdminPage}) {
 							value={dishName}
 							onChange={handleDishNameChange}
 							className="my-input"
+							onBlur={() => setDishNameIsDirty(true)}
+							onInput={resetDishNameError}
 						/>
+						<span className="food-error-message">{dishNameIsDirty ? nameFoodErrorMessage : ''}</span>
 					</label>
 					<label className="my-label">
 						Beskrivning av maträtten:
-						<textarea
+						<textarea 
 							value={dishDescription}
 							onChange={handleDishDescriptionChange}
-							className="my-input"
-						/>
+							onInput={resetTextFoodError}
+							className="my-text-input"
+							rows="10" column="100"
+							minlenght="10" maxlenght="100"
+							placeholder="Beskriv maträttens ingredienser..." >
+							</textarea>
+							<span className="description-error-message">{textFoodIsDirty ? textFoodErrorMessage : '' }</span>
 					</label>
 					<label className="my-label">
 						Länk till bild på maträtten:
@@ -71,7 +138,10 @@ function AdminPage({setShowAdminPage}) {
 							value={dishImage}
 							onChange={handleDishImageChange}
 							className="my-input"
+							onBlur={() => setUrlIsDirty(true)}
+							onInput={resetUrlError}
 						/>
+						<span className="url-error-message">{urlIsDirty ? urlErrorMessage : ''}</span>
 					</label>
 					<button type="submit" className="save-btn">
 						Spara

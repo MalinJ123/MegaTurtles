@@ -48,6 +48,15 @@
     display: block;
     margin-bottom: 10px;
   }
+
+  .my-text-input {
+    width: 100%; 
+    padding: 0.5em;  
+    resize: none;
+    margin: 0.1em; 
+    margin-left: -0.3em; 
+
+  }
   
   .my-input,
   .my-textarea {
