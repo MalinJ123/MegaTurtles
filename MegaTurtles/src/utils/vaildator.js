@@ -1,13 +1,13 @@
 
 //Funktionen för namn-input
 function isValidFullName(fullName) {
-	if (fullName.length < 6 ) {
+	if (fullName.length < 5 ) {
 		return [false, 'Minst 5 tecken tack.']; 
 	}
 	if (!fullName.includes(' ')) {
 		return [false, 'Vänligen fyll i både för- och efternamn.']; 
 	}
-	const allowChars = ' abcdefghijklmnopqrstuvwxyzåäö'
+	const allowChars = ' -´abcdefghijklmnopqrstuvwxyzåäö'
 	for(let i = 0; i < fullName.length; i++) {
 		let c = fullName.charAt(i).toLowerCase()
 		if(!allowChars.includes(c) ) {
@@ -21,7 +21,7 @@ function isValidTelephone(fullPhoneNumber) {
 	if(fullPhoneNumber.length < 10) {
 		return [false, 'Minst 10 siffror tack.'];
 	}
-	const allowNum = '0, 1, 2, 3, 4, 5, 6, 7, 8, 9'
+	const allowNum = '0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -'
 	for(let i = 0; i < fullPhoneNumber.length; i++) {
 		let n = fullPhoneNumber.charAt(i)
 		if(!allowNum.includes(n) ) {

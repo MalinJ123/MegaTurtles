@@ -73,6 +73,13 @@
 	border-color: rgb(76, 199, 76); 
 }
 
+.submit-meddelande {
+	font-style: italic;
+	font-size: 15px;
+	margin: 1em; 
+	font-weight: bold;
+}
+
 input {
 	width: 100%; 
 	padding: 0.5em; 

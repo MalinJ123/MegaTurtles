@@ -11,7 +11,11 @@ function UserForm() {
 	const [telIsDirty, setTelIsDirty] = useState(false); 
 	const [message, setMessage] = useState('')
 	const [messageIsDirty, setMessageIsDirty] = useState(false);
-	//const [hasTyped, setHasTyped] = useState=(false); 
+	const [submitMessage, setSubmitMessage] = useState('')
+	//Tömmer inputfält när suddar ut
+	const [isNameEmpty, setIsNameEmpty] = useState(false);
+	const [isTelEmpty, setIsTelEmpty] = useState(false);
+	const [isMessageEmpty, setIsMessageEmpty] = useState(false);  
 
 //required - Glöm ej det
 
@@ -20,16 +24,29 @@ const [telIsvalid, teleErrorMessage] = isValidTelephone(tel)
 const [textIsValid, textErrorMessage] = isValidMessage(message)
 
 //Namn input
-const handleNameChange = (e) => setName(e.target.value)
+const handleNameChange = (e) => {
+	setName(e.target.value)
+	setNameIsDirty(true);
+} 
 const formNameinput = nameIsDirty ? (nameIsValid ? 'valid' : 'invalid') : ''
+const resetNameError = () => {
+	setNameIsDirty(false); 
+}
 
 //Telefon input
-const handleTelephoneChange = (e) => setTel(e.target.value);
+const handleTelephoneChange = (e) => {
+	setTel(e.target.value);
+	setTelIsDirty(true);
+} 
 const formTelePhoneinput = telIsDirty ? (telIsvalid ? 'valid' : 'invalid') : ''
+const resetTelError = () => {
+	setTelIsDirty(false); 
+}
 
 //Message input
 const handleMessageChange = (e) => {
 	let input = e.target.value;
+	setMessageIsDirty(true);
 	console.log(e.target.value);
 	if (input.length > 100 || input.length < 10) {
 		setMessageIsDirty(true)
@@ -40,9 +57,31 @@ const handleMessageChange = (e) => {
 	setMessage(e.target.value)
 }; 
 const formMessageInput = messageIsDirty ? (textIsValid ? 'valid' : 'invalid') : ''
-
+const resetMessageError = () => {
+	setMessageIsDirty(false); 
+}
+//hanterar att sidan inte laddas om och när man trycker på button
 const handleSubmit = event => {
 	event.preventDefault()
+	if(name.trim() === '') {
+		setIsNameEmpty(true); 
+		return; 
+	}if (tel.trim() === '') {
+		setIsTelEmpty(true);
+		return;
+	}if (message.trim() === '') {
+		setIsMessageEmpty(true); 
+		return;
+	}
+
+	//Rensar fältet när man trycker på knappen
+	setName('');
+	setTel('')
+	setMessage('')
+	setNameIsDirty(false)
+	setTelIsDirty(false)
+	setMessageIsDirty(false)
+	setSubmitMessage('Tack för ditt meddelande! Vi återkommer med svar till dig!')
 }
 
 	return (
@@ -58,6 +97,7 @@ const handleSubmit = event => {
 						value={name} 
 						onChange={handleNameChange}
 						onBlur={() => setNameIsDirty(true)}
+						onInput={resetNameError}
 						/>
 						<span>{nameIsDirty ? (nameIsValid ? '✔️' : '❌') : '' }</span>
 					</div>
@@ -69,10 +109,12 @@ const handleSubmit = event => {
 						<div className="field">
 							<input 
 							className={formTelePhoneinput} 
-							type="tel" 
+							type="tel"
+							placeholder="Ex. 070-123897" 
 							value={tel} 
 							onChange={handleTelephoneChange}
-							onBlur={() => setTelIsDirty(true)}/>
+							onBlur={() => setTelIsDirty(true)}
+							onInput={resetTelError}/>
 							<span>{telIsDirty ? (telIsvalid ? '✔️' : '❌') : '' }</span>
 						</div>
 						<span className="display-error-phone-message">{telIsDirty ? teleErrorMessage : '' }</span>
@@ -83,6 +125,7 @@ const handleSubmit = event => {
 						<textarea className="message-box" type="text" 
 						value={message}
 						onChange={handleMessageChange} 
+						onInput={resetMessageError}
 						rows="10" column="100"
 						minlenght="10" maxlenght="100" 
 						placeholder="Lämna meddelande till restaurangen">
@@ -90,7 +133,8 @@ const handleSubmit = event => {
 						<span className="display-error-text-message">{messageIsDirty ? textErrorMessage : '' }</span>
 				</div>
 			
-				<button className="form-button" type="submit">Skicka in!</button>
+				<button className="form-button">Skicka in!</button>
+				{submitMessage && <p className="submit-meddelande">{submitMessage}</p>}
 		</form>
 		<div>
 			<img className="contactUs" src={contactUs} />
