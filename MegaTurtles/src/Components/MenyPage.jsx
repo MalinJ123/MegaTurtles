@@ -2,20 +2,25 @@ import React, { useState } from "react";
 import "../Stylesheet/menyPage.css";
 import menu from "../data/menudata.js";
 
-const MenyPage = ({ cartItems, setCartItems, addToCart }) => {
+const MenyPage = ({ cartItems, setCartItems, addToCart, menuItems,  }) => {
 	const [clickCount, setClickCount] = useState(0);
+	
+	
 
 	const handleAddToCart = (item) => {
 		addToCart(item);
 		setClickCount(clickCount + 1);
 	};
 
+	
+
 	return (
 		<>
 			<div className="menuSection">
 				<h3 className="menuH3">Menu</h3>
 			</div>
-			{menu.map((menuItem, index) => (
+	
+			{menuItems.map((menuItem, index) => (
 				<section className="menuSection" key={index}>
 					<p className="Line">______________________________</p>
 					<h3 className="menu-item-title">{menuItem.namn}</h3>
