@@ -9,11 +9,13 @@ const AdminLogin = (props) => {
 	const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
 	const [isUserNameCorrect, setIsUserNameCorrect] = useState(false);
 	const [hasSubmitted, setHasSubmitted] = useState(false);
-
 	const [userNameErrorMessage, setUserNameErrorMessage] = useState("");
 	const correctPassword = "mums";
 	const correctUserName = "admin";
 	const allowedChars = "abcdefghijklmnopqrstuvwxyzåäö";
+	const [userNameError, setUserNameError] = useState(false);
+	const [passwordError, setPasswordError] = useState(false);
+
 
 	const LoginEvents = (event) => {
 		event.preventDefault();
@@ -29,13 +31,22 @@ const AdminLogin = (props) => {
 			
 		} else {
 			if (password !== correctPassword) {
-				setIsPasswordCorrect(false);
+				setIsPasswordCorrect(false)
+				setPasswordError(true)
+				
+			} else {
+				setPasswordError(false)
 			}
 			if (userName !== correctUserName) {
-				setIsUserNameCorrect(false);
+				setIsUserNameCorrect(false)
+				setUserNameError(true)
+			} else {
+				setUserNameError(false)
 			}
 		}
-	};
+		
+	}
+
 
 	const handleInputChange = (event) => {
 		setPassword(event.target.value);
@@ -53,11 +64,15 @@ const AdminLogin = (props) => {
 				let c = input.charAt(i).toLowerCase();
 				if (!allowedChars.includes(c)) {
 					setUserNameErrorMessage("Vänligen använd bara bokstäver.");
-				}
+				} 
 			}
-		}
-		return [true, ""];
-	};
+		} else {
+					setUserNameErrorMessage("")
+				}
+			
+		return [true, '', setHasSubmitted(false)]
+		
+	}
 
 	const closeLogin = () => {
 
@@ -86,14 +101,8 @@ return (
 			onChange={inputChange}
 			onBlur={inputChange}
 		  />
-		  {userNameErrorMessage && (
-			<p className="error-message">{userNameErrorMessage}</p>
-		  )}
-		  {hasSubmitted && !isUserNameCorrect && userName !== "" && (
-			<p className="error-message">
-			  Felaktigt användarnamn, vänligen försök igen!
-			</p>
-		  )}
+		  {userNameErrorMessage && <p className='error-message'>{userNameErrorMessage}</p>}
+                     {hasSubmitted && userNameError && <p className='error-message'>Felaktigt användarnamn, Vänligen prova igen!</p> } 
   
 		  <label className="label-style">Lösenord:</label>
 		  <input
@@ -104,15 +113,15 @@ return (
 			onChange={handleInputChange}
 			onBlur={handleInputChange}
 		  />
-		  {hasSubmitted && !isPasswordCorrect && password !== "" && (
-			<p className="error-message">
-			  Felaktigt lösenord, vänligen försök igen!
-			</p>
-		  )}
-  
-		  <button className="logIn-button" type="submit" onClick={LoginEvents}>
-			Logga in
+
+		{hasSubmitted && passwordError && <p className='error-message'>Felaktigt lösenord, vänligen prova igen!</p> }
+
+	<button
+		className="logIn-button"
+		type="submit"
+		onClick={LoginEvents}>Logga in
 		  </button>
+			
 		</form>
 	  
 	</section>

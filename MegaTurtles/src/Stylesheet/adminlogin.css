@@ -46,13 +46,18 @@
 }
 
 .label-style {
+	font-weight: bold;
 	align-self: flex-start;
 	padding: 0;
 	margin-bottom: 0;
 }
 
 .error-message {
-	color: rgb(171, 31, 31);
+	color: black;
+	padding: 0;
+	padding-bottom: 0.5em;
+	margin:0;
+	font-size: 14px;
 }
 
 .logIn-button {
