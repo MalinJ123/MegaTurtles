@@ -113,18 +113,18 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 				{importedMenu &&
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
-							<h3>{item.namn}</h3>
+							<h3 className="adminMeny-Title">{item.namn}</h3>
 							<figure
 								style={{
-									width: "200px",
+									width: "70%",
 									height: "200px",
 									backgroundImage:  `url(${item.bild})`,
 									backgroundPosition: "center",
 									backgroundSize: "cover",
 								}}
 							/>
-							<div>
-								<p>{item.beskrivning}</p>
+							<div className="item-description">
+								<p className="mobile-para-description">{item.beskrivning}</p>
 							</div>
 							<div>
 								<p>{item.price} kr </p>
