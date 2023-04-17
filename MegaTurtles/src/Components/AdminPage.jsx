@@ -163,14 +163,16 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 				{importedMenu &&
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
+
 							{ isEditing && edit === index ? (
    								 <>
      						 <input
+							  	className="edit-input"
        							type="text"
 								name="newTextName"
         						value={newTextName}
         						onChange={handleInputEditChange}/>
-      						<button onClick={handleSaveChanges}>Spara</button>
+      						
    								 </>
   							) : (
     						<h3 className="adminMeny-Title">{item.namn}</h3>
@@ -178,11 +180,12 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 						{ isEditing && edit === index ? ( 
 						<>
      						 <input
+							  className="edit-input"
        							type="text"
 								name="newImage"
         						value={newImage}
         						onChange={handleInputEditChange}/>
-      						<button onClick={handleSaveChanges}>Spara</button>
+      						
    								 </> ) : (
 							
 
@@ -197,34 +200,38 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 								}}
 							/> )}
 
-							<div className="item-description">
+							
 								{ isEditing && edit === index ? (
 									<>
-									<input
-										 type="text"
+									<textarea
+									className="edit-input"
 									  name="newTextDescription"
 									  value={newTextDescription}
 									  onChange={handleInputEditChange}/>
-									<button onClick={handleSaveChanges}>Spara</button>
+									
 										  </> ) : ( 
 										  <p className="mobile-para-description">{item.beskrivning}</p>
 								)}
 								
-							</div>
-							<div>
+							
+							
 								{ isEditing && edit === index ? (
 									<>
 									<input
-										 type="text"
+									  className="edit-input"
+									  type="text"
 									  name="newPrice"
 									  value={newPrice}
-									  onChange={handleInputEditChange}/>
-									<button onClick={handleSaveChanges}>Spara</button>
+									  onChange={handleInputEditChange}/><div>
+									<button 
+										className="save-edit-btn"
+										onClick={handleSaveChanges}>Spara</button>
+										</div>
 										  </> ) : (
 									<p>{item.price} kr </p>
 								)}
 								
-							</div>
+							
 
 							<div>
 								<button
