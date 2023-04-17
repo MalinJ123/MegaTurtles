@@ -184,9 +184,12 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
         						onChange={handleInputEditChange}/>
       						<button onClick={handleSaveChanges}>Spara</button>
    								 </> ) : (
-							<figure
+							
+
+							<figure 
+							className="AdminPic"
 								style={{
-									width: "70%",
+									width: "50%",
 									height: "200px",
 									backgroundImage:  `url(${item.bild})`,
 									backgroundPosition: "center",
@@ -222,7 +225,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 								)}
 								
 							</div>
-							
+
 							<div>
 								<button
 									className="edit-btn"
