@@ -1,13 +1,30 @@
 .MenuPageContainer{
   display:flex;
   flex-direction: column;
- 
+  justify-content: center;
 }
 .MenuItem{
   display:flex;
   align-items: center;
   flex-direction: column;
   margin-top:3em;
+  
+}
+
+.item-description{
+  justify-content: center;
+  align-items: center;
+	 
+	display: flex;
+}
+.adminMeny-Title{
+  margin-bottom: 0.5em;
+}
+
+.mobile-para-description{
+  width: 70%;
+	max-width: 90%;
+	display: flex;
 }
 
 .AdminPage{
@@ -28,7 +45,7 @@
     margin: 0 auto;
     background-color: #f0f8db;
     /* background-color: rgb(208, 220, 214); */
-    padding: 20px;
+    padding: 22px;
     border-radius: 10px;
     margin: 20px;
     max-width: 350px;
@@ -46,11 +63,19 @@
     color: #333;
     font-size: 13px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .my-text-input {
+    width: 100%; 
+    padding: 0.5em;  
+    resize: none;
+    margin: 0.1em; 
+    margin-left: -0.3em; 
+
   }
   
-  .my-input,
-  .my-textarea {
+  .mylabel > input {
     font-family: Arial, sans-serif;
     color: #333;
     font-size: 14px;
@@ -61,8 +86,30 @@
   }
   
   .my-textarea {
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-size: 14px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
     resize: vertical;
     min-height: 100px;
+  }
+  /*Färger för färgmeddelande*/
+  .invalid {
+    border-color: rgb(219, 36, 36);
+  }
+  .valid {
+    border-color: rgb(76, 199, 76); 
+  }
+
+  /*Felmeddelande*/
+  .dish-error-message, .description-error-message, .url-error-message {
+    font-size: 13px;
+    color: red; 
+    margin: 1em 0em; 
+    padding-top: 1em; 
   }
   
   .save-btn,

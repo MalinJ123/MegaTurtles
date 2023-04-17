@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Stylesheet/AdminPage.css";
 import MenyPage from "./MenyPage";
 import menu from "../data/menudata.js";
+import { isValidFoodName, isValidFoodDescription, isValidUrl } from "../utils/validatorAdminForm";
 
 function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	const [dishName, setDishName] = useState("");
@@ -9,30 +10,97 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	const [dishImage, setDishImage] = useState("");
 	const [dishPrice, setDishPrice] = useState("");
 	const [importedMenu, setImportedMenu] = useState([]);
+
+	//Dirtymeddelande 
+	const [dishNameIsDirty, setDishNameIsDirty] = useState(false);
+	const [textFoodIsDirty, setTextFoodIsDirty] = useState(false);
+	const [urlIsDirty, setUrlIsDirty] = useState(false); 
+
+	//Funktion från validatorAdminForm och skapade nya varibaler 
+	const [dishIsValid, nameFoodErrorMessage ]= isValidFoodName(dishName)
+	const [decriptionIsvalid, textFoodErrorMessage] = isValidFoodDescription(dishDescription)
+	const [urlIsValid, urlErrorMessage] = isValidUrl(dishImage)
+
+	//Valedering med färg i input-fält
+	const forDishNameInput = dishNameIsDirty ? (dishIsValid ? 'valid' : 'invalid') : ''
+	const formUrlInput = urlIsDirty ? (urlIsValid ? 'valid' : 'invalid') : ''
+
+	//Tömmer inputfält när du suddar ut 
+	const [isDishNameEmpty, setDishNameEmpty] = useState(false);
+	const [isTextFoodEmpty, setTextFoodEmpty] = useState(false);
+	const [isUrlEmpty, setUrlEmpty] = useState(false);  
+
 	
 	
 	useEffect(() => {
 		setImportedMenu(menu);
 	}, []);
+
 	const handleDishNameChange = (event) => {
 		setDishName(event.target.value);
+		setDishNameIsDirty(true);
 	};
-
+	const resetDishNameError = () => {
+		setDishNameIsDirty(false);
+	}
+	//textarea
 	const handleDishDescriptionChange = (event) => {
+		let input = event.target.value;
+		setTextFoodIsDirty(true);
+		console.log(event.target.value)
+		if(input.length > 100 || input.length < 10 ) {
+			setTextFoodIsDirty(true); 
+			console.log(input.length)
+		}else {
+			setTextFoodIsDirty(false); 
+		}
 		setDishDescription(event.target.value);
 	};
+	//textarea
+	const resetTextFoodError = () => {
+		setTextFoodIsDirty(false); 
+	}
 
 	const handleDishImageChange = (event) => {
 		setDishImage(event.target.value);
+		setUrlIsDirty(true);
 	};
+	const resetUrlError = () => {
+		setUrlIsDirty(false);
+	}
 
 	const handleDishPriceChange = (event) => {
-		setDishPrice(event.target.value);
+		setDishPrice(Number(event.target.value));
 	};
 
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		if(dishName.trim() === '') {
+			setDishNameEmpty(true); 
+			return; 
+		}if (dishDescription.trim() === '') {
+			setTextFoodEmpty(true); 
+			return;
+		}if(dishImage.trim() === '') {
+			setUrlEmpty(true); 
+			return; 
+		}
+		// console.log("Formulärdata:", {
+		// 	dishName: dishName,
+		// 	dishDescription: dishDescription,
+		// 	dishImage: dishImage,
+		// });
+
+
+	//rensar fälten när man trycker på knappen
+	//setDishName(''); 
+	//setDishDescription('');
+	//setDishImage('');
+	//setDishNameIsDirty(false);
+	//setTextFoodIsDirty(false);
+	//setUrlIsDirty(false); 
+
 		const newDish = {
 			namn: dishName,
 			beskrivning: dishDescription,
@@ -46,7 +114,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 		  setDishName("");
 		  setDishDescription("");
 		  setDishImage("");
-		  setDishPrice("")
+		  setDishPrice(0)
 		};
 	
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
@@ -70,26 +138,40 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 							type="text"
 							value={dishName}
 							onChange={handleDishNameChange}
-							className="my-input"
-						/>
+							className={forDishNameInput}
+							onBlur={() => setDishNameIsDirty(true)}
+							onInput={resetDishNameError}/>
+							<span> {dishNameIsDirty ? dishIsValid : '' }</span>
+
+						<span className="dish-error-message">{dishNameIsDirty ? nameFoodErrorMessage : ''}</span>
 					</label>
 					<label className="my-label">
 						Beskrivning av maträtten:
-						<textarea
+						<textarea 
 							value={dishDescription}
 							onChange={handleDishDescriptionChange}
-							className="my-input"
-						/>
+							onInput={resetTextFoodError}
+							className="my-text-input"
+							rows="10" column="100"
+							minlenght="10" maxlenght="100"
+							placeholder="Beskriv maträttens ingredienser..." >
+							</textarea>
+							<span className="description-error-message">{textFoodIsDirty ? textFoodErrorMessage : '' }</span>
 					</label>
 					<label className="my-label">
 						Länk till bild på maträtten:
-						<input
-							type="text" 
-							id="image-url" name="image-url" placeholder="https://example.com/image.jpg"
-							value={dishImage}
-							onChange={handleDishImageChange}
-							className="my-input"
-						/>
+						<div>
+							<input
+								type="text"
+								value={dishImage}
+								placeholder="http://..."
+								onChange={handleDishImageChange}
+								className={formUrlInput}
+								onBlur={() => setUrlIsDirty(true)}
+								onInput={resetUrlError}/>
+								<span>{urlIsDirty ? urlIsValid : '' }</span>
+						</div>
+						<span className="url-error-message">{urlIsDirty ? urlErrorMessage : ''}</span>
 					</label>
 
 					<label className="my-label">
@@ -113,18 +195,18 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 				{importedMenu &&
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
-							<h3>{item.namn}</h3>
+							<h3 className="adminMeny-Title">{item.namn}</h3>
 							<figure
 								style={{
-									width: "200px",
+									width: "70%",
 									height: "200px",
 									backgroundImage:  `url(${item.bild})`,
 									backgroundPosition: "center",
 									backgroundSize: "cover",
 								}}
 							/>
-							<div>
-								<p>{item.beskrivning}</p>
+							<div className="item-description">
+								<p className="mobile-para-description">{item.beskrivning}</p>
 							</div>
 							<div>
 								<p>{item.price} kr </p>
@@ -149,5 +231,4 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 		</>
 	);
 }
-
 export default AdminPage;
