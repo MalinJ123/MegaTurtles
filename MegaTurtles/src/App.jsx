@@ -29,6 +29,7 @@ function App() {
 
 	useEffect(() => {
 		if (showAdminPage === true) {
+			if (view != "ADMIN")
 			setView("ADMIN");
 		} else {
 			setView("CONTENT");
@@ -38,6 +39,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header
+			setShowAdminPage={setShowAdminPage}
 				cartItems={cartItems}
 				setCartItems={setCartItems}
 				addToCart={addToCart}

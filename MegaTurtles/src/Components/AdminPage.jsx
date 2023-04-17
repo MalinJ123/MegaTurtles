@@ -77,7 +77,8 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	};
 
 	const handleDishPriceChange = (event) => {
-		setDishPrice(Number(event.target.value));
+		// setDishPrice(Number(event.target.value));
+		  setDishPrice(event.target.value); 
 	};
 
 
@@ -96,7 +97,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 		  setDishName("");
 		  setDishDescription("");
 		  setDishImage("");
-		  setDishPrice()
+		  setDishPrice(0)
 		};
 	
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
@@ -145,7 +146,8 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 					<label className="my-label">
 						Lägg till ett pris på maträtten:
 						<input
-							type="text" 
+							step={10}
+							type="number" 
 							value={dishPrice}
 							onChange={handleDishPriceChange}
 							className="my-input"
@@ -170,7 +172,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 								<p className="mobile-para-description">{item.beskrivning}</p>
 							</div>
 							<div>
-								<p>{item.price} kr </p>
+								<p className="price">{item.price} kr </p>
 							</div>
 
 							{ isEditing && edit === index ? (
@@ -183,8 +185,8 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
         						onChange={handleInputEditChange}/>
       						
    								 </>
-  							) : (
-    						<h3 className="adminMeny-Title">{item.namn}</h3>
+  							) : ( null
+    						// <h3 className="adminMeny-Title">{item.namn}</h3>
   							)}
 						{ isEditing && edit === index ? ( 
 						<>
@@ -198,8 +200,17 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
    								 </> ) : (
 							
 
-							<img className="AdminPic" src={item.bild} alt="Bild på mat"
-							/> )}
+							// <figure 
+							// className="AdminPic"
+							// 	style={{
+							// 		width: "50%",
+							// 		height: "200px",
+							// 		backgroundImage:  `url(${item.bild})`,
+							// 		backgroundPosition: "center",
+							// 		backgroundSize: "cover",
+							// 	}}
+							// />
+							null  )}
 
 							
 								{ isEditing && edit === index ? (
@@ -211,7 +222,8 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 									  onChange={handleInputEditChange}/>
 									
 										  </> ) : ( 
-										  <p className="mobile-para-description">{item.beskrivning}</p>
+										//   <p className="mobile-para-description">{item.beskrivning}</p>
+										null
 								)}
 								
 							
@@ -228,8 +240,9 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 										className="save-edit-btn"
 										onClick={handleSaveChanges}>Spara</button>
 										</div>
-										  </> ) : (
-									<p>{item.price} kr </p>
+										  </>
+										   ) : (null
+									// <p>{item.price} kr </p>
 								)}
 								
 							
