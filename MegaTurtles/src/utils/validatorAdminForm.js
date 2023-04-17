@@ -1,8 +1,8 @@
 //Funktioner för admin för att lägga till nya maträtter 
 
 function isValidFoodName(fullFoodName) {
-	if (fullFoodName.length < 5 ) {
-		return [false, 'Minst 5 tecken tack.']; 
+	if (fullFoodName.length < 3 ) {
+		return [false, 'Minst 3 tecken tack.']; 
 	}
 	const allowChars = ' -´abcdefghijklmnopqrstuvwxyzåäö'
 	for(let i = 0; i < fullFoodName.length; i++) {
@@ -18,7 +18,7 @@ function isValidFoodDescription(fullFoodDescription) {
 	if(fullFoodDescription.length < 101) {
 		return [false, 'Minst 10 och max 100 tecken tack.'];
 	}
-	const allowSymbol = '0123456789abcdefghijklmnopqristuvwxyzåäö?!,.'
+	const allowSymbol = ' 0123456789abcdefghijklmnopqristuvwxyzåäö?!,. '
 	for(let i = 0; i < fullFoodDescription.length; i++ ) {
 		let s = fullFoodDescription.charAt(i)
 		if(!allowSymbol.includes(s) ) {
@@ -29,13 +29,13 @@ function isValidFoodDescription(fullFoodDescription) {
 }
 
 function isValidUrl(fullUrl) {
-	if(fullUrl.length < 101) {
-		return [false, 'Vänligen glöm inte http:// i början av adressen'];
+	if(fullUrl.length < 7) {
+		return [false, 'Vänligen fyll i adressen till bilden med minst 7 bokstäver'];
 	}
-	const allowSymbol = '0123456789abcdefghijklmnopqristuvwxyzåäö?!,.&=/_'
+	const allowSymbolUrl = '0123456789abcdefghijklmnopqristuvwxyzåäö?!,.& =/ /_'
 	for(let i = 0; i < fullUrl.length; i++ ) {
 		let s = fullUrl.charAt(i)
-		if(!allowSymbol.includes(s) ) {
+		if(!allowSymbolUrl.includes(s) ) {
 			return [false, 'Vänlig använd giltiga tecken tack!']
 		}
 	}

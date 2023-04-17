@@ -16,10 +16,13 @@ function AdminPage({setShowAdminPage}) {
 	const [urlIsDirty, setUrlIsDirty] = useState(false); 
 
 	//Funktion från validatorAdminForm och skapade nya varibaler 
-	const [nameFoodIsValid, nameFoodErrorMessage ]= isValidFoodName(dishName)
-	const [textFoodIsvalid, textFoodErrorMessage] = isValidFoodDescription(dishDescription)
+	const [dishIsValid, nameFoodErrorMessage ]= isValidFoodName(dishName)
+	const [decriptionIsvalid, textFoodErrorMessage] = isValidFoodDescription(dishDescription)
 	const [urlIsValid, urlErrorMessage] = isValidUrl(dishImage)
 
+	//Valedering med färg i input-fält
+	const forDishNameInput = dishNameIsDirty ? (dishIsValid ? 'valid' : 'invalid') : ''
+	const formUrlInput = urlIsDirty ? (urlIsValid ? 'valid' : 'invalid') : ''
 
 	//Tömmer inputfält när du suddar ut 
 	const [isDishNameEmpty, setDishNameEmpty] = useState(false);
@@ -84,12 +87,12 @@ function AdminPage({setShowAdminPage}) {
 	};
 
 	//rensar fälten när man trycker på knappen
-	// setDishName(''); 
-	// setDishDescription('');
-	// setDishImage('');
-	// setDishNameIsDirty(false);
-	// setTextFoodIsDirty(false);
-	// setUrlIsDirty(false); 
+	//setDishName(''); 
+	//setDishDescription('');
+	//setDishImage('');
+	//setDishNameIsDirty(false);
+	//setTextFoodIsDirty(false);
+	//setUrlIsDirty(false); 
 
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
 	const handleDelete = (itemToDelete) => {
@@ -112,11 +115,12 @@ function AdminPage({setShowAdminPage}) {
 							type="text"
 							value={dishName}
 							onChange={handleDishNameChange}
-							className="my-input"
+							className={forDishNameInput}
 							onBlur={() => setDishNameIsDirty(true)}
-							onInput={resetDishNameError}
-						/>
-						<span className="food-error-message">{dishNameIsDirty ? nameFoodErrorMessage : ''}</span>
+							onInput={resetDishNameError}/>
+							<span> {dishNameIsDirty ? dishIsValid : '' }</span>
+
+						<span className="dish-error-message">{dishNameIsDirty ? nameFoodErrorMessage : ''}</span>
 					</label>
 					<label className="my-label">
 						Beskrivning av maträtten:
@@ -133,14 +137,17 @@ function AdminPage({setShowAdminPage}) {
 					</label>
 					<label className="my-label">
 						Länk till bild på maträtten:
-						<input
-							type="text"
-							value={dishImage}
-							onChange={handleDishImageChange}
-							className="my-input"
-							onBlur={() => setUrlIsDirty(true)}
-							onInput={resetUrlError}
-						/>
+						<div>
+							<input
+								type="text"
+								value={dishImage}
+								placeholder="http://..."
+								onChange={handleDishImageChange}
+								className={formUrlInput}
+								onBlur={() => setUrlIsDirty(true)}
+								onInput={resetUrlError}/>
+								<span>{urlIsDirty ? urlIsValid : '' }</span>
+						</div>
 						<span className="url-error-message">{urlIsDirty ? urlErrorMessage : ''}</span>
 					</label>
 					<button type="submit" className="save-btn">
