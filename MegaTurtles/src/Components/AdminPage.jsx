@@ -70,7 +70,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	}
 
 	const handleDishPriceChange = (event) => {
-		setDishPrice(event.target.value);
+		setDishPrice(Number(event.target.value));
 	};
 
 
@@ -91,7 +91,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 		// 	dishDescription: dishDescription,
 		// 	dishImage: dishImage,
 		// });
-	};
+
 
 	//rensar fälten när man trycker på knappen
 	//setDishName(''); 
@@ -114,7 +114,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 		  setDishName("");
 		  setDishDescription("");
 		  setDishImage("");
-		  setDishPrice("")
+		  setDishPrice(0)
 		};
 	
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
@@ -172,13 +172,6 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 								<span>{urlIsDirty ? urlIsValid : '' }</span>
 						</div>
 						<span className="url-error-message">{urlIsDirty ? urlErrorMessage : ''}</span>
-						<input
-							type="text" 
-							id="image-url" name="image-url" placeholder="https://example.com/image.jpg"
-							value={dishImage}
-							onChange={handleDishImageChange}
-							className="my-input"
-						/>
 					</label>
 
 					<label className="my-label">
@@ -237,5 +230,5 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 			</section>
 		</>
 	);
-
+}
 export default AdminPage;

@@ -32,10 +32,11 @@ function isValidUrl(fullUrl) {
 	if(fullUrl.length < 7) {
 		return [false, 'Vänligen fyll i adressen till bilden med minst 7 bokstäver'];
 	}
-	const allowSymbolUrl = '0123456789abcdefghijklmnopqristuvwxyzåäö?!,.& =/ /_'
+	const allowSymbolUrl = '0123456789abcdefghijklmnopqristuvwxyzåäö?!,.& =/_:'
 	for(let i = 0; i < fullUrl.length; i++ ) {
 		let s = fullUrl.charAt(i)
 		if(!allowSymbolUrl.includes(s) ) {
+			console.log('Isvalid url: ' + s)
 			return [false, 'Vänlig använd giltiga tecken tack!']
 		}
 	}

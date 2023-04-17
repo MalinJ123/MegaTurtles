@@ -26,7 +26,7 @@ const [textIsValid, textErrorMessage] = isValidMessage(message)
 //Namn input
 const handleNameChange = (e) => {
 	setName(e.target.value)
-	setNameIsDirty(true);
+	//setNameIsDirty(true);
 } 
 const formNameinput = nameIsDirty ? (nameIsValid ? 'valid' : 'invalid') : ''
 const resetNameError = () => {
