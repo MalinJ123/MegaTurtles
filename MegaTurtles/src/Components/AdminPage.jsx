@@ -3,11 +3,13 @@ import "../Stylesheet/AdminPage.css";
 import MenyPage from "./MenyPage";
 import menu from "../data/menudata.js";
 
-function AdminPage({setShowAdminPage}) {
+function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	const [dishName, setDishName] = useState("");
 	const [dishDescription, setDishDescription] = useState("");
 	const [dishImage, setDishImage] = useState("");
+	const [dishPrice, setDishPrice] = useState("");
 	const [importedMenu, setImportedMenu] = useState([]);
+	
 	
 	useEffect(() => {
 		setImportedMenu(menu);
@@ -24,14 +26,29 @@ function AdminPage({setShowAdminPage}) {
 		setDishImage(event.target.value);
 	};
 
+	const handleDishPriceChange = (event) => {
+		setDishPrice(event.target.value);
+	};
+
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log("Formulärdata:", {
-			dishName: dishName,
-			dishDescription: dishDescription,
-			dishImage: dishImage,
-		});
-	};
+		const newDish = {
+			namn: dishName,
+			beskrivning: dishDescription,
+			bild: dishImage,
+			price: dishPrice
+		  };
+		  
+		  addDish(newDish)
+		  setImportedMenu([...importedMenu, newDish]);
+		  
+		  setDishName("");
+		  setDishDescription("");
+		  setDishImage("");
+		  setDishPrice("")
+		};
+	
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
 	const handleDelete = (itemToDelete) => {
 		const updatedItems = importedMenu.filter(
@@ -67,35 +84,50 @@ function AdminPage({setShowAdminPage}) {
 					<label className="my-label">
 						Länk till bild på maträtten:
 						<input
-							type="text"
+							type="text" 
+							id="image-url" name="image-url" placeholder="https://example.com/image.jpg"
 							value={dishImage}
 							onChange={handleDishImageChange}
 							className="my-input"
 						/>
 					</label>
+
+					<label className="my-label">
+						Lägg till ett pris på maträtten:
+						<input
+							type="text" 
+							value={dishPrice}
+							onChange={handleDishPriceChange}
+							className="my-input"
+						/>
+					</label>
+
+
 					<button type="submit" className="save-btn">
-						Spara
+						Lägg till
 					</button>
-					<button className="edit-btn">Redigera</button>
-					<button className="delete-btn">Radera</button>
+	
 				</form>
 			</section>
 			<section className="MenuPageContainer">
 				{importedMenu &&
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
-							<h3>{item.namn}</h3>
+							<h3 className="adminMeny-Title">{item.namn}</h3>
 							<figure
 								style={{
-									width: "200px",
+									width: "70%",
 									height: "200px",
-									backgroundImage: `url(../..${item.bild})`,
+									backgroundImage:  `url(${item.bild})`,
 									backgroundPosition: "center",
 									backgroundSize: "cover",
 								}}
 							/>
+							<div className="item-description">
+								<p className="mobile-para-description">{item.beskrivning}</p>
+							</div>
 							<div>
-								<p>{item.beskrivning}</p>
+								<p>{item.price} kr </p>
 							</div>
 							<div>
 								<button
