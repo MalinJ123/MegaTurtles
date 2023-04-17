@@ -30,8 +30,59 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	const [isTextFoodEmpty, setTextFoodEmpty] = useState(false);
 	const [isUrlEmpty, setUrlEmpty] = useState(false);  
 
+	// Här kommer koden för att redigera i menyn.
+	const [edit, setEdit] = useState(null)
+	const [isEditing, setIsEditing] = useState(false)
+	const [newTextName, setNewTextName] = useState('')
+	const [newTextDescription, setNewTextDescription] = useState('')
+	const [newImage, setNewImage] = useState('')
+	const [newPrice, setNewPrice] = useState('')
+
 	
+	const handleEditClick = (index) => {
+		console.log('Jag är en funktion ', index)
+		setIsEditing(true)
+		setEdit(index)
+		setNewTextName(importedMenu[index].namn);
+  		setNewTextDescription(importedMenu[index].beskrivning);
+  		setNewImage(importedMenu[index].bild);
+  		setNewPrice(importedMenu[index].price);
+	}
+ 	const handleInputEditChange = (event) => {
+		 const { name, value } = event.target;
+		 switch (name) {
+			 case "newTextName":
+			setNewTextName(value)
+			break;
+			case "newTextDescription":
+				setNewTextDescription(value);
+				break;
+			  case "newImage":
+				setNewImage(value);
+				break;
+			  case "newPrice":
+				setNewPrice(Number(value));
+				break;
+			  default:
+				break;
+			}
+		  
+		 }
 	
+
+	const handleSaveChanges = () => {
+		const updatedImportedMenu = [...importedMenu];
+  		updatedImportedMenu[edit].namn = newTextName;
+ 		 updatedImportedMenu[edit].beskrivning = newTextDescription;
+ 		 updatedImportedMenu[edit].bild = newImage;
+  		updatedImportedMenu[edit].price = newPrice;
+  		setImportedMenu(updatedImportedMenu);
+  		setEdit(null);
+		  setIsEditing(false)
+	}
+
+	
+
 	useEffect(() => {
 		setImportedMenu(menu);
 	}, []);
@@ -195,33 +246,85 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 				{importedMenu &&
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
-							<h3 className="adminMeny-Title">{item.namn}</h3>
-							<figure
+
+							{ isEditing && edit === index ? (
+   								 <>
+     						 <input
+							  	className="edit-input"
+       							type="text"
+								name="newTextName"
+        						value={newTextName}
+        						onChange={handleInputEditChange}/>
+      						
+   								 </>
+  							) : (
+    						<h3 className="adminMeny-Title">{item.namn}</h3>
+  							)}
+						{ isEditing && edit === index ? ( 
+						<>
+     						 <input
+							  className="edit-input"
+       							type="text"
+								name="newImage"
+        						value={newImage}
+        						onChange={handleInputEditChange}/>
+      						
+   								 </> ) : (
+							
+
+							<figure 
+							className="AdminPic"
 								style={{
-									width: "70%",
+									width: "50%",
 									height: "200px",
 									backgroundImage:  `url(${item.bild})`,
 									backgroundPosition: "center",
 									backgroundSize: "cover",
 								}}
-							/>
-							<div className="item-description">
-								<p className="mobile-para-description">{item.beskrivning}</p>
-							</div>
-							<div>
-								<p>{item.price} kr </p>
-							</div>
+							/> )}
+
+							
+								{ isEditing && edit === index ? (
+									<>
+									<textarea
+									className="edit-input"
+									  name="newTextDescription"
+									  value={newTextDescription}
+									  onChange={handleInputEditChange}/>
+									
+										  </> ) : ( 
+										  <p className="mobile-para-description">{item.beskrivning}</p>
+								)}
+								
+							
+							
+								{ isEditing && edit === index ? (
+									<>
+									<input
+									  className="edit-input"
+									  type="text"
+									  name="newPrice"
+									  value={newPrice}
+									  onChange={handleInputEditChange}/><div>
+									<button 
+										className="save-edit-btn"
+										onClick={handleSaveChanges}>Spara</button>
+										</div>
+										  </> ) : (
+									<p>{item.price} kr </p>
+								)}
+								
+							
+
 							<div>
 								<button
 									className="edit-btn"
-									onClick={() => handleEdit(item.namn)}
-								>
+									onClick={() => handleEditClick(index)}>
 									Redigera
 								</button>
 								<button
 									className="delete-btn"
-									onClick={() => handleDelete(item)}
-								>
+									onClick={() => handleDelete(item)}>
 									Ta bort
 								</button>
 							</div>

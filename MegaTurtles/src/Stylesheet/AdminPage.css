@@ -22,10 +22,12 @@
 }
 
 .mobile-para-description{
-  width: 70%;
 	max-width: 90%;
 	display: flex;
+  text-align: center;
 }
+
+
 
 .AdminPage{
 	font-size: 2em;
@@ -114,7 +116,8 @@
   
   .save-btn,
   .edit-btn,
-  .delete-btn {
+  .delete-btn,
+  .save-edit-btn {
     font-family: Arial, sans-serif;
     background-color: #6CA695;
     color: white;
@@ -127,9 +130,19 @@
   
   .save-btn:hover,
   .edit-btn:hover,
-  .delete-btn:hover{
+  .delete-btn:hover,
+  .save-edit-btn:hover{
     /* background-color: #CAEFDD; */
     /* background-color: #6CA695; */
     background-color: #9dd9c7;
   }
+
+ .edit-input {
+  max-width: 350px;
+  width: 70%; 
+    padding: 0.5em;
+    font-family: 'roboto', sans-serif;
+  }
+
+
 

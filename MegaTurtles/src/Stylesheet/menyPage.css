@@ -58,15 +58,13 @@
 	
   }
 
-  /* .Line{
-	border: none;
-  } */
 
   @media screen and (min-width: 740px) {
 	.menuH3{
 		font-size: 3em;
 		
 	}
+	.AdminPic,
 	.menu-pic{
 		width: 30%;
  		height: 200px;
@@ -87,7 +85,6 @@
 		align-self: center; 
 	  }
 	  .price{
-		/* border: 2px solid black;  */
 		width: 17em;
 		justify-content: end;
 		font-size: 1.2em;
@@ -95,7 +92,6 @@
 	 
 	  .plusbtn{
 		cursor: pointer;
-		/* width:2em; */
 		height:2em;
 		visibility: visible;
 	
