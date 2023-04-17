@@ -9,8 +9,58 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	const [dishImage, setDishImage] = useState("");
 	const [dishPrice, setDishPrice] = useState("");
 	const [importedMenu, setImportedMenu] = useState([]);
+	const [edit, setEdit] = useState(null)
+	const [isEditing, setIsEditing] = useState(false)
+	const [newTextName, setNewTextName] = useState('')
+	const [newTextDescription, setNewTextDescription] = useState('')
+	const [newImage, setNewImage] = useState('')
+	const [newPrice, setNewPrice] = useState('')
+
+	// Här kommer koden för att redigera i menyn.
+	const handleEditClick = (index) => {
+		console.log('Jag är en funktion ', index)
+		setIsEditing(true)
+		setEdit(index)
+		setNewTextName(importedMenu[index].namn);
+  		setNewTextDescription(importedMenu[index].beskrivning);
+  		setNewImage(importedMenu[index].bild);
+  		setNewPrice(importedMenu[index].price);
+	}
+ 	const handleInputEditChange = (event) => {
+		 const { name, value } = event.target;
+		 switch (name) {
+			 case "newTextName":
+			setNewTextName(value)
+			break;
+			case "newTextDescription":
+				setNewTextDescription(value);
+				break;
+			  case "newImage":
+				setNewImage(value);
+				break;
+			  case "newPrice":
+				setNewPrice(Number(value));
+				break;
+			  default:
+				break;
+			}
+		  
+		 }
 	
+
+	const handleSaveChanges = () => {
+		const updatedImportedMenu = [...importedMenu];
+  		updatedImportedMenu[edit].namn = newTextName;
+ 		 updatedImportedMenu[edit].beskrivning = newTextDescription;
+ 		 updatedImportedMenu[edit].bild = newImage;
+  		updatedImportedMenu[edit].price = newPrice;
+  		setImportedMenu(updatedImportedMenu);
+  		setEdit(null);
+		  setIsEditing(false)
+	}
+
 	
+
 	useEffect(() => {
 		setImportedMenu(menu);
 	}, []);
@@ -27,7 +77,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	};
 
 	const handleDishPriceChange = (event) => {
-		setDishPrice(event.target.value);
+		setDishPrice(Number(event.target.value));
 	};
 
 
@@ -113,7 +163,27 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 				{importedMenu &&
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
-							<h3 className="adminMeny-Title">{item.namn}</h3>
+							{ isEditing && edit === index ? (
+   								 <>
+     						 <input
+       							type="text"
+								name="newTextName"
+        						value={newTextName}
+        						onChange={handleInputEditChange}/>
+      						<button onClick={handleSaveChanges}>Spara</button>
+   								 </>
+  							) : (
+    						<h3 className="adminMeny-Title">{item.namn}</h3>
+  							)}
+						{ isEditing && edit === index ? ( 
+						<>
+     						 <input
+       							type="text"
+								name="newImage"
+        						value={newImage}
+        						onChange={handleInputEditChange}/>
+      						<button onClick={handleSaveChanges}>Spara</button>
+   								 </> ) : (
 							<figure
 								style={{
 									width: "70%",
@@ -122,24 +192,46 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 									backgroundPosition: "center",
 									backgroundSize: "cover",
 								}}
-							/>
+							/> )}
+
 							<div className="item-description">
-								<p className="mobile-para-description">{item.beskrivning}</p>
+								{ isEditing && edit === index ? (
+									<>
+									<input
+										 type="text"
+									  name="newTextDescription"
+									  value={newTextDescription}
+									  onChange={handleInputEditChange}/>
+									<button onClick={handleSaveChanges}>Spara</button>
+										  </> ) : ( 
+										  <p className="mobile-para-description">{item.beskrivning}</p>
+								)}
+								
 							</div>
 							<div>
-								<p>{item.price} kr </p>
+								{ isEditing && edit === index ? (
+									<>
+									<input
+										 type="text"
+									  name="newPrice"
+									  value={newPrice}
+									  onChange={handleInputEditChange}/>
+									<button onClick={handleSaveChanges}>Spara</button>
+										  </> ) : (
+									<p>{item.price} kr </p>
+								)}
+								
 							</div>
+							
 							<div>
 								<button
 									className="edit-btn"
-									onClick={() => handleEdit(item.namn)}
-								>
+									onClick={() => handleEditClick(index)}>
 									Redigera
 								</button>
 								<button
 									className="delete-btn"
-									onClick={() => handleDelete(item)}
-								>
+									onClick={() => handleDelete(item)}>
 									Ta bort
 								</button>
 							</div>
