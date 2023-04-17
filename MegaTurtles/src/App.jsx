@@ -12,11 +12,18 @@ import AdminPage from "./Components/AdminPage";
 import "../src/Stylesheet/adminlogin.css";
 import UserForm from "./Components/Userform";
 import "./Stylesheet/userForm.css";
+import menu from "./data/menudata";
 
 function App() {
 	const [cartItems, setCartItems] = useState([]);
 	const [view, setView] = useState("CONTENT");
 	const [showAdminPage, setShowAdminPage] = useState(false);
+  const [menuItems, setMenuItems] = useState(menu)
+
+  const addDish = (newDish) => {
+    setMenuItems((prevMenuItems) => [...prevMenuItems, newDish]);
+  };
+
 	//Alternativt här den skall vara "useState(false)"";, då värdet är false i adminLogin som standard och om lösen är validerat blir true och då skall AdminPage visas. 
 	const addToCart = (item) => {
 		setCartItems([...cartItems, item]);
@@ -40,7 +47,8 @@ function App() {
 				setView={setView}
 			/>
 			{view === "ADMIN" ? (
-				<AdminPage setShowAdminPage={setShowAdminPage}/>
+				<AdminPage  menuItems={menuItems} addDish={addDish}
+        setShowAdminPage={setShowAdminPage}/>
 			) : (
 				<>
 					{view === "CONTENT" ? (
@@ -55,6 +63,9 @@ function App() {
 							cartItems={cartItems}
 							setCartItems={setCartItems}
 							addToCart={addToCart}
+              menuItems={menuItems}
+              addDish={addDish}
+              
 						/>
 					) : null}
 				</>

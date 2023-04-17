@@ -1,13 +1,30 @@
 .MenuPageContainer{
   display:flex;
   flex-direction: column;
- 
+  justify-content: center;
 }
 .MenuItem{
   display:flex;
   align-items: center;
   flex-direction: column;
   margin-top:3em;
+  
+}
+
+.item-description{
+  justify-content: center;
+  align-items: center;
+	 
+	display: flex;
+}
+.adminMeny-Title{
+  margin-bottom: 0.5em;
+}
+
+.mobile-para-description{
+  width: 70%;
+	max-width: 90%;
+	display: flex;
 }
 
 .AdminPage{
