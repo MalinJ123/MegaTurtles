@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Stylesheet/AdminPage.css";
 import MenyPage from "./MenyPage";
 import menu from "../data/menudata.js";
-import { isValidFoodName, isValidFoodDescription, isValidUrl } from "../utils/validatorAdminForm";
+import { isValidFoodName, isValidFoodDescription, isValidUrl, isValidPrice} from "../utils/validatorAdminForm";
 
 function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	const [dishName, setDishName] = useState("");
@@ -15,22 +15,24 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	const [dishNameIsDirty, setDishNameIsDirty] = useState(false);
 	const [textFoodIsDirty, setTextFoodIsDirty] = useState(false);
 	const [urlIsDirty, setUrlIsDirty] = useState(false); 
+	const [priceIsDirty, setPriceIsDirty] = useState(false);
 
 	//Funktion från validatorAdminForm och skapade nya varibaler 
 	const [dishIsValid, nameFoodErrorMessage ]= isValidFoodName(dishName)
 	const [decriptionIsvalid, textFoodErrorMessage] = isValidFoodDescription(dishDescription)
 	const [urlIsValid, urlErrorMessage] = isValidUrl(dishImage)
+	const [priceIsvalid, priceErrorMessage] = isValidPrice(dishPrice)
 
 	//Valedering med färg i input-fält
 	const forDishNameInput = dishNameIsDirty ? (dishIsValid ? 'valid' : 'invalid') : ''
 	const formUrlInput = urlIsDirty ? (urlIsValid ? 'valid' : 'invalid') : ''
+	const formPriceInput = priceIsDirty ? (priceIsvalid ? 'valid' : 'invalid') : ''
 
 	//Tömmer inputfält när du suddar ut 
 	const [isDishNameEmpty, setDishNameEmpty] = useState(false);
 	const [isTextFoodEmpty, setTextFoodEmpty] = useState(false);
 	const [isUrlEmpty, setUrlEmpty] = useState(false);  
 
-	
 	
 	useEffect(() => {
 		setImportedMenu(menu);
@@ -71,7 +73,12 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 
 	const handleDishPriceChange = (event) => {
 		setDishPrice(Number(event.target.value));
+		setPriceIsDirty(true);
 	};
+
+	const resetPriceError = () => {
+		setPriceIsDirty(false); 
+	}
 
 
 	const handleSubmit = (event) => {
@@ -94,12 +101,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 
 
 	//rensar fälten när man trycker på knappen
-	//setDishName(''); 
-	//setDishDescription('');
-	//setDishImage('');
-	//setDishNameIsDirty(false);
-	//setTextFoodIsDirty(false);
-	//setUrlIsDirty(false); 
+
 
 		const newDish = {
 			namn: dishName,
@@ -114,7 +116,10 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 		  setDishName("");
 		  setDishDescription("");
 		  setDishImage("");
-		  setDishPrice(0)
+		  setDishPrice("")
+			//setDishNameIsDirty(false);
+			//setTextFoodIsDirty(false);
+			//setUrlIsDirty(false); 
 		};
 	
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
@@ -142,9 +147,8 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 							onBlur={() => setDishNameIsDirty(true)}
 							onInput={resetDishNameError}/>
 							<span> {dishNameIsDirty ? dishIsValid : '' }</span>
-
-						<span className="dish-error-message">{dishNameIsDirty ? nameFoodErrorMessage : ''}</span>
 					</label>
+					<span className="dish-error-message">{dishNameIsDirty ? nameFoodErrorMessage : ''}</span>
 					<label className="my-label">
 						Beskrivning av maträtten:
 						<textarea 
@@ -176,12 +180,16 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 
 					<label className="my-label">
 						Lägg till ett pris på maträtten:
-						<input
-							type="text" 
-							value={dishPrice}
-							onChange={handleDishPriceChange}
-							className="my-input"
-						/>
+						<div>
+							<input
+								type="text" 
+								value={dishPrice}
+								onChange={handleDishPriceChange}className={formPriceInput}
+								onBlur={() => setPriceIsDirty(true)}
+								onInput={resetPriceError}/>
+								<span>{priceIsDirty ? priceIsvalid : ''}</span>
+						</div>
+						<span className="price-error-message">{priceIsDirty ? priceErrorMessage : ''}</span>
 					</label>
 
 
