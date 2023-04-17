@@ -114,9 +114,9 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
 							<h3 className="adminMeny-Title">{item.namn}</h3>
-							<figure
+							<figure className="AdminPic"
 								style={{
-									width: "70%",
+									width: "50%",
 									height: "200px",
 									backgroundImage:  `url(${item.bild})`,
 									backgroundPosition: "center",
