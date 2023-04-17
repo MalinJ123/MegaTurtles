@@ -27,7 +27,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	};
 
 	const handleDishPriceChange = (event) => {
-		setDishPrice(event.target.value);
+		setDishPrice(Number(event.target.value));
 	};
 
 
@@ -46,7 +46,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 		  setDishName("");
 		  setDishDescription("");
 		  setDishImage("");
-		  setDishPrice("")
+		  setDishPrice()
 		};
 	
 	//Den här knappen tar bort hela menyalternativet du klickar på i adminPage vyn
@@ -114,14 +114,8 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 					importedMenu.map((item, index) => (
 						<div className="MenuItem" key={index}>
 							<h3 className="adminMeny-Title">{item.namn}</h3>
-							<figure className="AdminPic"
-								style={{
-									width: "50%",
-									height: "200px",
-									backgroundImage:  `url(${item.bild})`,
-									backgroundPosition: "center",
-									backgroundSize: "cover",
-								}}
+							<img className="AdminPic" src={item.bild} alt="Bild på mat"
+								
 							/>
 							<div className="item-description">
 								<p className="mobile-para-description">{item.beskrivning}</p>

@@ -22,7 +22,7 @@
 }
 
 .mobile-para-description{
-  width: 70%;
+  width: 80%;
 	max-width: 90%;
 	display: flex;
 }
@@ -34,6 +34,7 @@
 	align-items: center;
 	flex-direction: column;
 }
+
 
 .Admin-Form-Container{
   display: flex;
@@ -98,8 +99,7 @@
   .save-btn:hover,
   .edit-btn:hover,
   .delete-btn:hover{
-    /* background-color: #CAEFDD; */
-    /* background-color: #6CA695; */
+  
     background-color: #9dd9c7;
   }
 
