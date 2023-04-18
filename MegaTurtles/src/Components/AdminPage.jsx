@@ -240,24 +240,13 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 					</div>
 						<span className="url-error-message">{urlIsDirty ? urlErrorMessage : ''}</span>
 
-					<label className="my-label">
-						Lägg till ett pris på maträtten:
-						<input
-							step={10}
-							type="number" 
-							value={dishPrice}
-							onChange={handleDishPriceChange}
-							className="my-input"
-						/>
-					</label>
-
-
 					<div className="form-price-input">
 						<label className="my-label">
 							Lägg till ett pris på maträtten:
 						</label>
 							<input
-								type="text" 
+								step={10}
+								type="number"
 								value={dishPrice}
 								onChange={handleDishPriceChange}className={formPriceInput}
 								onBlur={() => setPriceIsDirty(true)}
