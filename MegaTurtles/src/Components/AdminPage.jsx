@@ -77,8 +77,8 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 	};
 
 	const handleDishPriceChange = (event) => {
-		// setDishPrice(Number(event.target.value));
-		  setDishPrice(event.target.value); 
+		setDishPrice(Number(event.target.value));
+		//   setDishPrice(event.target.value); 
 	};
 
 
@@ -115,6 +115,7 @@ function AdminPage({setShowAdminPage, addDish, menuItems}) {
 				<button onClick={() => {setShowAdminPage(false)}}>Logga ut</button>
 				<form onSubmit={handleSubmit} className="my-form">
 					<h2 className="EditMenu">Redigera Meny alternativ</h2>
+					
 					<label className="my-label">
 						Maträttens namn:
 						<input
