@@ -22,7 +22,7 @@
 	background-color: #6CA695;
 	border-radius: 2em;
 	padding: 1em 4em 4em 4em;
-	width: 30%;
+	width: 50%;
 	text-align: center;
 	margin: 0;
 	top: 17em;
@@ -61,12 +61,34 @@
 }
 
 .logIn-button {
-	background-color: #CAEFDD;
+	background-color: #b6dbd0;
 	cursor: pointer;
 }
 
 .logIn-button:hover {
-	background-color: #6CA695;
+	background-color: #CAEFDD;
+}
+
+.login {
+	/* border: 2px solid blue; */
+	width: 100px;
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	padding: 1em;
+	
+}
+
+@media (min-width:550px) {
+	.login{
+		/* width: 100px; */
+		/* border: 2px solid pink; */
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1em;
+	}
 }
 
 .AdminPic{
