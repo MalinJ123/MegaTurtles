@@ -4,9 +4,6 @@ import menu from "../data/menudata.js";
 
 const MenyPage = ({ cartItems, setCartItems, addToCart, menuItems,  }) => {
 	const [clickCount, setClickCount] = useState(0);
-	
-	
-
 	const handleAddToCart = (item) => {
 		addToCart(item);
 		setClickCount(clickCount + 1);

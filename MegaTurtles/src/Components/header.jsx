@@ -7,7 +7,7 @@ import React, { useRef, useState } from "react";
 import HamburgerMenu from "./hamburgermenu";
 import "../Stylesheet/hamburgermenu.css";
 
-const Header = ({ cartItems, setCartItems, setView }) => {
+const Header = ({ cartItems, setCartItems, setView, setShowAdminPage }) => {
 	const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
 	const [showShoppingCart, setShowShoppingCart] = useState(false);
 
@@ -27,6 +27,7 @@ const Header = ({ cartItems, setCartItems, setView }) => {
 	}
 
 	const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
 
 	const scrollDown = () => {
 		window.scrollTo({
@@ -51,6 +52,7 @@ const Header = ({ cartItems, setCartItems, setView }) => {
 				alt="Logo"
 				onClick={() => {
 					setView("CONTENT");
+					setShowAdminPage(false)
 				}}
 			/>
 
@@ -59,6 +61,7 @@ const Header = ({ cartItems, setCartItems, setView }) => {
 					className="menu-bar"
 					onClick={() => {
 						setView("MENU");
+						setShowAdminPage(false)
 					}}
 				>
 					Meny
@@ -67,6 +70,7 @@ const Header = ({ cartItems, setCartItems, setView }) => {
 					className="menu-bar"
 					onClick={() => {
 						setView("CONTENT");
+						setShowAdminPage(false)
 					}}
 				>
 					Om MiddagsHörnan

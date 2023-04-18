@@ -23,10 +23,10 @@ const AdminLogin = (props) => {
 		
 
 		if ((password === correctPassword) && (userName === correctUserName)) {
-			console.log("HEEEEEEJ");
 			setIsPasswordCorrect(true);
 			setIsUserNameCorrect(true);
 			props.setShowAdminPage(true);
+			
 			closeLogin();
 			
 		} else {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import ContentMain from "./Components/content";
-import "./Stylesheet/ContentMain.css"
+import "./Stylesheet/ContentMain.css";
 import MenyPage from "./Components/MenyPage";
 import "./Stylesheet/menyPage.css";
 import Footer from "./Components/footer.jsx/";
@@ -18,37 +18,39 @@ function App() {
 	const [cartItems, setCartItems] = useState([]);
 	const [view, setView] = useState("CONTENT");
 	const [showAdminPage, setShowAdminPage] = useState(false);
-  const [menuItems, setMenuItems] = useState(menu)
+	const [menuItems, setMenuItems] = useState(menu);
 
-  const addDish = (newDish) => {
-    setMenuItems((prevMenuItems) => [...prevMenuItems, newDish]);
-  };
-
-	//Alternativt här den skall vara "useState(false)"";, då värdet är false i adminLogin som standard och om lösen är validerat blir true och då skall AdminPage visas. 
+	const addDish = (newDish) => {
+		setMenuItems((prevMenuItems) => [...prevMenuItems, newDish]);
+	};
 	const addToCart = (item) => {
 		setCartItems([...cartItems, item]);
 	};
 
 	useEffect(() => {
 		if (showAdminPage === true) {
-		 setView("ADMIN")
+			if (view != "ADMIN")
+			setView("ADMIN");
+		} else {
+			setView("CONTENT");
 		}
-		else {
-			setView("CONTENT")
-		}
-	  }, [showAdminPage]);
+	}, [showAdminPage]);
 
 	return (
 		<div className="App">
 			<Header
+			setShowAdminPage={setShowAdminPage}
 				cartItems={cartItems}
 				setCartItems={setCartItems}
 				addToCart={addToCart}
 				setView={setView}
 			/>
 			{view === "ADMIN" ? (
-				<AdminPage  menuItems={menuItems} addDish={addDish}
-        setShowAdminPage={setShowAdminPage}/>
+				<AdminPage
+					menuItems={menuItems}
+					addDish={addDish}
+					setShowAdminPage={setShowAdminPage}
+				/>
 			) : (
 				<>
 					{view === "CONTENT" ? (
@@ -63,15 +65,14 @@ function App() {
 							cartItems={cartItems}
 							setCartItems={setCartItems}
 							addToCart={addToCart}
-              menuItems={menuItems}
-              addDish={addDish}
-              
+							menuItems={menuItems}
+							addDish={addDish}
 						/>
 					) : null}
 				</>
 			)}
 
-			<Footer setShowAdminPage={setShowAdminPage}  />
+			<Footer setShowAdminPage={setShowAdminPage} />
 		</div>
 	);
 }

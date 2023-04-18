@@ -22,10 +22,10 @@
 	background-color: #6CA695;
 	border-radius: 2em;
 	padding: 1em 4em 4em 4em;
-	width: 30%;
+	width: 50%;
 	text-align: center;
 	margin: 0;
-	top: 17em;
+	top: 4em;
 	border: solid 1px rgb(75, 75, 75);
 	box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 15px;
 	max-width: 250px;
@@ -61,16 +61,54 @@
 }
 
 .logIn-button {
-	background-color: #CAEFDD;
+	background-color: #b6dbd0;
 	cursor: pointer;
 }
 
 .logIn-button:hover {
-	background-color: #6CA695;
+	background-color: #CAEFDD;
+}
+
+.login {
+	/* border: 2px solid blue; */
+	width: 100px;
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	padding: 1em;
+	
+}
+
+@media (min-width:550px) {
+	.login{
+		/* width: 100px; */
+		/* border: 2px solid pink; */
+	width: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1em;
+	}
+
+	.form-container {
+		top: 17em;
+	}
+}
+
+.AdminPic{
+	width: 80%;
+	height: 200px;
 }
 
 
+	 
 
+@media screen and (min-width: 740px) {
+    .AdminPic{
+		width: 40%;
+		height: 200px;
+    }
+} 
 
 
 

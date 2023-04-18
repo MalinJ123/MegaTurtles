@@ -1,5 +1,6 @@
 //Funktioner för admin för att lägga till nya maträtter 
 
+//namet på maten på adminpage 
 function isValidFoodName(fullFoodName) {
 	if (fullFoodName.length < 3 ) {
 		return [false, 'Minst 3 tecken tack.']; 
@@ -13,7 +14,7 @@ function isValidFoodName(fullFoodName) {
 	}
 	return [true, '']; 
 }
-
+//matbeskrivning i adminpage 
 function isValidFoodDescription(fullFoodDescription) {
 	if(fullFoodDescription.length < 101) {
 		return [false, 'Minst 10 och max 100 tecken tack.'];
@@ -27,10 +28,10 @@ function isValidFoodDescription(fullFoodDescription) {
 	}
 	return [true, '']
 }
-
+//url på adminpage 
 function isValidUrl(fullUrl) {
 	if(fullUrl.length < 7) {
-		return [false, 'Vänligen fyll i adressen till bilden med minst 7 bokstäver'];
+		return [false, 'Vänligen fyll i adressen med 7 bokstäver'];
 	}
 	const allowSymbolUrl = '0123456789abcdefghijklmnopqristuvwxyzåäö?!,.& =/_:'
 	for(let i = 0; i < fullUrl.length; i++ ) {
@@ -43,6 +44,22 @@ function isValidUrl(fullUrl) {
 	return [true, '']
 }
 
+//priset i Adminpage 
+function isValidPrice(fullPrice) {
+	if(fullPrice.length < 3) {
+		return [false, 'Vänligen fyll i matpriset med minst 2 siffrigt']; 
+	}
+	const allowNumberPrice = '0123456789'
+	for(let i=0; i < fullPrice.length; i++) {
+		let r = fullPrice.charAt(i) 
+		if(!allowNumberPrice.includes(r) ) {
+			console.log('Isvalid price: ' + r)
+			return [false, 'Vänligen använd siffor tack']
+		}
+	}
+	return [true, '']
+}
 
 
-export { isValidFoodName , isValidFoodDescription, isValidUrl }
+
+export { isValidFoodName , isValidFoodDescription, isValidUrl, isValidPrice }
