@@ -69,8 +69,20 @@
 	background-color: #6CA695;
 }
 
+.AdminPic{
+	width: 80%;
+	height: 200px;
+}
 
 
+	 
+
+@media screen and (min-width: 740px) {
+    .AdminPic{
+		width: 40%;
+		height: 200px;
+    }
+} 
 
 
 
