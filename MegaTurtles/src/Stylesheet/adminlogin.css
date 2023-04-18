@@ -25,7 +25,7 @@
 	width: 50%;
 	text-align: center;
 	margin: 0;
-	top: 17em;
+	top: 4em;
 	border: solid 1px rgb(75, 75, 75);
 	box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 15px;
 	max-width: 250px;
@@ -88,6 +88,10 @@
 	align-items: center;
 	justify-content: center;
 	padding: 1em;
+	}
+
+	.form-container {
+		top: 17em;
 	}
 }
 
